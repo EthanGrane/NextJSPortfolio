@@ -1,10 +1,10 @@
-import { Carousel, Tag, Timeline, Button } from "@once-ui-system/core";
-import { FaGithub } from "react-icons/fa";
+import { Carousel, Tag, Timeline, Button, ShineFx } from "@once-ui-system/core";
+import { FaGithub, FaCloudUploadAlt } from "react-icons/fa";
 
 export interface TimelineItem {
     label: string;
     description: string;
-    state: "completed" | "active" | "upcoming" | "success";
+    state: "default" | "active" | "danger" | "success";
 }
 
 export interface ProjectItemProps {
@@ -14,6 +14,7 @@ export interface ProjectItemProps {
     tags: string[];
     timeline: TimelineItem[];
     repoLink?: string;
+    deployLink?: string;
 }
 
 const ProjectItem = ({
@@ -22,7 +23,8 @@ const ProjectItem = ({
     images,
     tags,
     timeline,
-    repoLink
+    repoLink,
+    deployLink
 }: ProjectItemProps) => {
     return (
         <section
@@ -36,6 +38,7 @@ const ProjectItem = ({
             {/* Carrusel: primero en mobile, segundo en desktop */}
             <div className="w-full md:w-1/2 order-1 md:order-2">
                 <Carousel
+                    play={{ auto: true, interval: 5000, controls: false }}
                     items={images}
                 />
             </div>
@@ -54,22 +57,47 @@ const ProjectItem = ({
                         <Tag key={tag}>{tag}</Tag>
                     ))}
                 </div>
+
                 <div className="flex flex-row">
                     <Timeline className="hidden sm:block w-1/2"
                         items={timeline}
                     />
 
-                    {repoLink &&
-                        <Button
-                            size="l"
-                            variant="subtle"
-                            className="ml-auto mt-auto"
-                            href={repoLink}
-                        >
-                            <FaGithub className="mr-4" />
-                            Github Repo
-                        </Button>
-                    }
+                    <div className="flex flex-col gap-0 w-full md:h-full">
+                        <div className="mt-4 md:mt-auto md:h-full">
+
+                            {deployLink &&
+
+                                <Button
+                                    size="l"
+                                    variant="primary"
+                                    className="ml-auto mt-8"
+                                    href={deployLink}
+                                >
+                                    <FaCloudUploadAlt className="mr-4" />
+                                    
+                                    <ShineFx inverse>
+                                        Deployment
+                                    </ShineFx>
+
+                                </Button>
+                            }
+
+                            {repoLink &&
+                                <Button
+                                    size="l"
+                                    variant="subtle"
+                                    className="ml-auto mt-8"
+                                    href={repoLink}
+                                >
+                                    <FaGithub className="mr-4" />
+                                    Github Repo
+                                </Button>
+                            }
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </section>

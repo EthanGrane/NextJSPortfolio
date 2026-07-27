@@ -86,17 +86,17 @@ export default function WebPortfolio() {
                 title="Social Network with VUE & Laravel"
                 description="A location-based social network where users can create posts tied to any point on the map, combining social interaction with geolocation to provide a unique way of discovering content."
                 images={[
-                    { slide: "/projects/SocialMediaProject_gif.gif" },
                     { slide: "/projects/SocialMediaProject_Image1.webp" },
                     { slide: "/projects/SocialMediaProject_Image2.webp" },
                     { slide: "/projects/SocialMediaProject_Image3.webp" },
                 ]}
                 tags={["HTML", "CSS", "JavaScript", "VUE", "PHP", "LARAVEL", "MAPBOXGL (API)"]}
                 timeline={[
+
                     {
                         label: "January 2025",
                         description: "Project kickoff",
-                        state: "completed"
+                        state: "active"
                     },
                     {
                         label: "April 2025",
@@ -107,30 +107,65 @@ export default function WebPortfolio() {
                 repoLink="https://github.com/EthanGrane/Proyecto-2-Whatevernever"
             />
 
-            
+
             <ProjectItem
-                title="Social Network with VUE & Laravel"
-                description="A location-based social network where users can create posts tied to any point on the map, combining social interaction with geolocation to provide a unique way of discovering content."
+                title="Steam Market Analyzer"
+                description="
+                Steam Market Analyzer is a mobile application developed with React Native that allows developers, analysts, and enthusiasts in the video game industry to study the Steam market quickly and intuitively.
+                "
                 images={[
-                    { slide: "/projects/SocialMediaProject_gif.gif" },
-                    { slide: "/projects/SocialMediaProject_Image1.webp" },
-                    { slide: "/projects/SocialMediaProject_Image2.webp" },
-                    { slide: "/projects/SocialMediaProject_Image3.webp" },
+                    { slide: "/projects/SteamMarketAnalyzer_Image1.webp" },
+                    { slide: "/projects/SteamMarketAnalyzer_Image2.webp" },
+                    { slide: "/projects/SteamMarketAnalyzer_Image3.webp" },
                 ]}
                 tags={["HTML", "CSS", "JavaScript", "React", "React Native", "Steam API"]}
                 timeline={[
                     {
-                        label: "January 2025",
+                        label: "April 2026",
                         description: "Project kickoff",
-                        state: "completed"
+                        state: "active"
                     },
                     {
-                        label: "April 2025",
-                        description: "Project delivery",
+                        label: "May 2026",
+                        description: "MVP",
                         state: "success"
+                    },
+                    {
+                        label: "Undefined",
+                        description: "Project delivery",
+                        state: "default"
                     }
                 ]}
                 repoLink="https://github.com/EthanGrane/Steam-Market-Analyzer"
+                deployLink="https://github.com/EthanGrane/Steam-Market-Analyzer/releases"
+            />
+
+            <ProjectItem
+                title="Digital Logic Simulator"
+                description="
+                In this project I made a logic gate simulator where you can create your own logic gates and combine them infinitely; the maximum calculation capacity I have tested has been a basic binary calculator.
+                With this project I got an excellent grade in advanced programming
+                "
+                images={[
+                    { slide: "/projects/DigitalLogicSimulator_Gif.gif" },
+                    { slide: "/projects/DigitalLogicSimulator_Image1.webp" },
+                    { slide: "/projects/DigitalLogicSimulator_Image2.webp" },
+                ]}
+                tags={["C#", "WinForms"]}
+                timeline={[
+                    {
+                        label: "October 2024",
+                        description: "Project kickoff",
+                        state: "active"
+                    },
+                    {
+                        label: "April 2024",
+                        description: "MVP",
+                        state: "success"
+                    }
+                ]}
+                repoLink="https://github.com/EthanGrane/Digital-Logic-Simulator"
+                deployLink="https://github.com/EthanGrane/Digital-Logic-Simulator/releases"
             />
 
             {/* Spacer */}
