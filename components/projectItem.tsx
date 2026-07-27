@@ -74,8 +74,10 @@ const ProjectItem = ({
                                     className="ml-auto mt-8"
                                     href={deployLink}
                                 >
-                                    <FaCloudUploadAlt className="mr-4" />
-                                    
+                                    <span className="mr-4 inline-flex">
+                                        <FaCloudUploadAlt />
+                                    </span>
+
                                     <ShineFx inverse>
                                         Deployment
                                     </ShineFx>
@@ -90,7 +92,10 @@ const ProjectItem = ({
                                     className="ml-auto mt-8"
                                     href={repoLink}
                                 >
-                                    <FaGithub className="mr-4" />
+                                    <span className="mr-4 inline-flex">
+                                        <FaGithub />
+                                    </span>
+
                                     Github Repo
                                 </Button>
                             }
