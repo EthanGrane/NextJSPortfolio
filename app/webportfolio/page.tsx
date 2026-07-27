@@ -30,8 +30,8 @@ export default function WebPortfolio() {
                         }}
                         mask={{
                             x: 50,
-                            y: 0,
-                            radius: 50,
+                            y: 50,
+                            radius: 100,
                         }}
                     />
                 </RevealFx>
@@ -82,7 +82,56 @@ export default function WebPortfolio() {
                 angle={0}
             />
 
-            <ProjectItem />
+            <ProjectItem
+                title="Social Network with VUE & Laravel"
+                description="A location-based social network where users can create posts tied to any point on the map, combining social interaction with geolocation to provide a unique way of discovering content."
+                images={[
+                    { slide: "/projects/SocialMediaProject_gif.gif" },
+                    { slide: "/projects/SocialMediaProject_Image1.webp" },
+                    { slide: "/projects/SocialMediaProject_Image2.webp" },
+                    { slide: "/projects/SocialMediaProject_Image3.webp" },
+                ]}
+                tags={["HTML", "CSS", "JavaScript", "VUE", "PHP", "LARAVEL", "MAPBOXGL (API)"]}
+                timeline={[
+                    {
+                        label: "January 2025",
+                        description: "Project kickoff",
+                        state: "completed"
+                    },
+                    {
+                        label: "April 2025",
+                        description: "Project delivery",
+                        state: "success"
+                    }
+                ]}
+                repoLink="https://github.com/EthanGrane/Proyecto-2-Whatevernever"
+            />
+
+            
+            <ProjectItem
+                title="Social Network with VUE & Laravel"
+                description="A location-based social network where users can create posts tied to any point on the map, combining social interaction with geolocation to provide a unique way of discovering content."
+                images={[
+                    { slide: "/projects/SocialMediaProject_gif.gif" },
+                    { slide: "/projects/SocialMediaProject_Image1.webp" },
+                    { slide: "/projects/SocialMediaProject_Image2.webp" },
+                    { slide: "/projects/SocialMediaProject_Image3.webp" },
+                ]}
+                tags={["HTML", "CSS", "JavaScript", "React", "React Native", "Steam API"]}
+                timeline={[
+                    {
+                        label: "January 2025",
+                        description: "Project kickoff",
+                        state: "completed"
+                    },
+                    {
+                        label: "April 2025",
+                        description: "Project delivery",
+                        state: "success"
+                    }
+                ]}
+                repoLink="https://github.com/EthanGrane/Steam-Market-Analyzer"
+            />
 
             {/* Spacer */}
             <div style={{ height: "6rem" }} />
