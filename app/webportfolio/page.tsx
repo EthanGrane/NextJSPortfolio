@@ -1,3 +1,7 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
 import { GradientText_Purple_Orange, GradientText_Grey_White } from "@/components/gradientText";
 import { ProjectItem } from "@/components/projectItem";
 import { TechCard } from "@/components/techCard";
@@ -6,6 +10,15 @@ import { techStack } from "@/components/techStack";
 import { Background, RevealFx } from "@once-ui-system/core";
 
 export default function WebPortfolio() {
+
+    {/* Gradient follows mouseX */}
+    const [mouseX, setMouseX] = useState(50);
+    useEffect(() => 
+    {
+        const handleMouseMove = (e: MouseEvent) => setMouseX((e.clientX / window.innerWidth) * 100);
+        window.addEventListener("mousemove", handleMouseMove);
+    }, []);
+
     return (
         <div className="flex flex-col items-center justify-center w-full">
             {/* Hero section */}
@@ -23,7 +36,7 @@ export default function WebPortfolio() {
                         gradient={{
                             display: true,
                             opacity: 100,
-                            x: 50,
+                            x: mouseX,
                             y: -10,
                             colorStart: "custom-gradient-color",
                             colorEnd: "page-background",
