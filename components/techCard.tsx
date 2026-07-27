@@ -16,7 +16,7 @@ export const TechCard = ({ icon: Icon, label, color }: TechCardProps) => {
     transition-colors duration-300
 ">
             <div className="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9">
-                <span className={`${color} w-full h-full inline-block`}>
+                <span className={`${color} w-full h-full inline-block [&>svg]:w-full [&>svg]:h-full`}>
                     <Icon />
                 </span>
             </div>
