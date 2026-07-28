@@ -12,9 +12,28 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   variable: '--font-plus-jakarta', // Opcional: para usar con Tailwind CSS
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://next-js-portfolio-three.vercel.app";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ethan Grané García",
+  url: SITE_URL,
+  jobTitle: "Full-Stack Developer",
+  sameAs: ["https://github.com/EthanGrane"],
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Ethan Grane",
   description: "Personal portfolio website showcasing my projects and skills as a Full-Stack Developer.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -28,6 +47,12 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} h-full antialiased`}
     >
       <body className="h-full">
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
         <LayoutProvider>
           <ThemeProvider>
             {children}

@@ -10,7 +10,7 @@ export interface TimelineItem {
 export interface ProjectItemProps {
     title: string;
     description: string;
-    images: { slide: string }[];
+    images: { slide: string; alt?: string }[];
     tags: string[];
     timeline: TimelineItem[];
     repoLink?: string;
@@ -26,6 +26,13 @@ const ProjectItem = ({
     repoLink,
     deployLink
 }: ProjectItemProps) => {
+    // Fallback alt text per slide if one isn't provided, so images are
+    // never left without a descriptive alt (bad for SEO + accessibility).
+    const imagesWithAlt = images.map((image, index) => ({
+        ...image,
+        alt: image.alt ?? `${title} screenshot ${index + 1}`,
+    }));
+
     return (
         <section
             className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8
@@ -34,20 +41,23 @@ const ProjectItem = ({
             gap-8 sm:gap-10 md:gap-16
             border-b border-gray-800 last:border-none
             "
+            aria-label={title}
         >
             {/* Carrusel: primero en mobile, segundo en desktop */}
             <div className="w-full md:w-1/2 order-1 md:order-2">
                 <Carousel
                     play={{ auto: true, interval: 5000, controls: false }}
-                    items={images}
+                    items={imagesWithAlt}
                 />
             </div>
 
             {/* Contenido: segundo en mobile, primero en desktop */}
             <div className="w-full h-auto md:w-1/2 order-2 md:order-1 flex flex-col justify-center">
-                <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-12 sm:mb-24 md:mb-16">
+                {/* SEO: h3, not h2 — each project title nests under the page's
+                    "My Projects" h2, keeping one clean heading hierarchy. */}
+                <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-12 sm:mb-24 md:mb-16">
                     {title}
-                </h2>
+                </h3>
                 <p className=" mb-12 sm:mb-24 md:mb-16 text-sm sm:text-base leading-relaxed text-gray-300">
                     {description}
                 </p>
