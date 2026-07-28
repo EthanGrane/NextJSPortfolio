@@ -18,7 +18,7 @@ const GradientText_Purple_Orange = ({
     return (
         <Tag
             id={id}
-            className={`bg-clip-text text-transparent ${className}`}
+            className={`bg-clip-text text-transparent mb-16 md:mb-32 ${className}`}
             style={{
                 backgroundImage: `linear-gradient(${angle}deg, #a855f7, #fd944a)`,
             }}
@@ -38,7 +38,7 @@ const GradientText_Grey_White = ({
     return (
         <Tag
             id={id}
-            className={`bg-clip-text text-transparent ${className}`}
+            className={`bg-clip-text text-transparent mb-16 md:mb-32 ${className}`}
             style={{
                 backgroundImage: `linear-gradient(${angle}deg, #98a0b1, #ffffff)`,
             }}

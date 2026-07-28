@@ -8,6 +8,7 @@ import { TechCard } from "@/components/techCard";
 import { techStack } from "@/components/techStack";
 
 import { Background, RevealFx, LetterFx } from "@once-ui-system/core";
+import {FooterSection} from "@/components/footerSection";
 
 export default function WebPortfolio() {
 
@@ -16,9 +17,8 @@ export default function WebPortfolio() {
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             // Prevent mobile interaction
-            if (window.innerWidth > window.innerHeight)
-            {
-                const xValue =(e.clientX / window.innerWidth) * 100
+            if (window.innerWidth > window.innerHeight) {
+                const xValue = (e.clientX / window.innerWidth) * 100
                 setMouseX(Math.min(Math.max(xValue, 25), 75));
             }
         }
@@ -82,7 +82,7 @@ export default function WebPortfolio() {
             <section className="w-full flex flex-col items-center" aria-labelledby="skills-heading">
                 <GradientText_Grey_White
                     text="My Skills"
-                    className="text-3xl font-bold tracking-tight sm:text-5xl m-3 mb-6 md:mb-8"
+                    className="text-3xl font-bold tracking-tight sm:text-5xl"
                     angle={0}
                     as="h2"
                     id="skills-heading"
@@ -108,7 +108,7 @@ export default function WebPortfolio() {
             {/* Projects */}
             <section className="w-full flex flex-col items-center" aria-labelledby="projects-heading">
                 <GradientText_Grey_White
-                    className="text-4xl font-bold tracking-tight sm:text-5xl m-3 mb-16 md:mb-32"
+                    className="text-4xl font-bold tracking-tight sm:text-5xl"
                     text="My Projects"
                     angle={0}
                     as="h2"
@@ -123,7 +123,7 @@ export default function WebPortfolio() {
                         { slide: "/projects/SocialMediaProject_Image2.webp", alt: "Social network post creation screen with location picker" },
                         { slide: "/projects/SocialMediaProject_Image3.webp", alt: "Social network map view with geolocated posts" },
                     ]}
-                    tags={["HTML", "CSS", "JavaScript", "VUE", "PHP", "LARAVEL", "MAPBOXGL (API)"]}
+                    tags={["HTML", "CSS", "JavaScript", "VUE", "PHP", "LARAVEL", "MAPBOXGL"]}
                     timeline={[
 
                         {
@@ -205,22 +205,41 @@ export default function WebPortfolio() {
             <div style={{ height: "6rem" }} />
 
             {/* About me */}
-            <section className="w-full flex flex-col items-center" aria-labelledby="about-heading">
-                <GradientText_Grey_White
-                    text="About me"
-                    className="text-3xl font-bold tracking-tight sm:text-5xl m-3 mb-6 md:mb-8"
-                    angle={0}
-                    as="h2"
-                    id="about-heading"
-                />
+            <div className="flex flex-col w-full md:flex-row items-center justify-center gap-8 md:gap-24 p-6 md:p-16 max-w-6xl mx-auto">
 
-                <p className="max-w-2xl text-center">
-                    Hi, im Ethan Grané, a Fullstack Developer based in Barcelona currently focused on React and Next.js. im passionate about building clean, thoughtfully designed web interfaces. ive also been making games in Unity as a personal hobby since I was 16, which gave me a solid foundation in logic, performance, and problem-solving.
-                </p>
-            </section>
+                {/* Text */}
+                <div className="w-full md:w-2/3">
+                    <section
+                        className="w-full flex flex-col items-center md:items-start text-center md:text-left"
+                        aria-labelledby="about-heading"
+                    >
+                        <GradientText_Grey_White
+                            text="About me"
+                            className="text-3xl font-bold tracking-tight sm:text-5xl mb-6"
+                            angle={0}
+                            as="h2"
+                            id="about-heading"
+                        />
+
+                        <p className="max-w-2xl text-neutral-300 leading-relaxed mb-16 md:mb-16">
+                            Hi, im Ethan Grané, a Fullstack Developer based in Barcelona currently focused on React and Next.js. Im passionate about building clean, thoughtfully designed web interfaces.
+                        </p>
+
+                        <p className="max-w-2xl text-neutral-300 leading-relaxed mb-16 md:mb-16">
+                            I have been passionate about programming since I was a child. I consider it both my hobby and my profession in equal measure. I am always looking for opportunities to learn, grow, and contribute to more complex and challenging projects.
+                        </p>
+
+                        <p className="max-w-2xl text-neutral-300 leading-relaxed mb-16 md:mb-16">
+                            Ive also been making games in Unity as a personal hobby since I was 16, which gave me a solid foundation in logic, performance, and problem-solving.
+                        </p>
+                    </section>
+                </div>
+            </div>
 
             {/* Spacer */}
             <div style={{ height: "6rem" }} />
+
+            <FooterSection />
         </div>
     );
 }
