@@ -6,8 +6,8 @@ import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import { ThemeProvider, LayoutProvider } from "@once-ui-system/core";
 
-import {FooterSection} from "@/components/footerSection";
-import {HeaderSection} from "@/components/headerSection";
+import { FooterSection } from "@/components/footerSection";
+import { HeaderSection } from "@/components/headerSection";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -29,13 +29,11 @@ const jsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Ethan Grane",
-  description: "Personal portfolio website showcasing my projects and skills as a Full-Stack Developer.",
-  alternates: {
-    canonical: "/",
-  },
-  robots: {
-    index: true,
-    follow: true,
+  description: "...",
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
+  other: {
+    "color-scheme": "dark",
   },
 };
 
@@ -48,6 +46,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${plusJakartaSans.variable} h-full antialiased`}
+      style={{ colorScheme: "dark" }}
     >
       <body className="h-full">
 
