@@ -12,7 +12,7 @@ export const TechCard = ({ icon: Icon, label, color }: TechCardProps) => {
     flex flex-col gap-2 py-3 px-4 sm:px-6
     items-center justify-center aspect-square w-full sm:w-24 md:w-28
     rounded-lg border-2 border-gray-500
-    hover:border-gray-200 hover:bg-[#3B3B3B]
+    hover:bg-[#3B3B3B]
     transition-colors duration-300
 ">
             <div className="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9">
