@@ -8,7 +8,7 @@ import { TechCard } from "@/components/techCard";
 import { techStack } from "@/components/techStack";
 
 import { Background, RevealFx, LetterFx } from "@once-ui-system/core";
-import {FooterSection} from "@/components/footerSection";
+
 
 export default function WebPortfolio() {
 
@@ -238,8 +238,6 @@ export default function WebPortfolio() {
 
             {/* Spacer */}
             <div style={{ height: "6rem" }} />
-
-            <FooterSection />
         </div>
     );
 }

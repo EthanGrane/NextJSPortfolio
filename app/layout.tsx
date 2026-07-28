@@ -6,6 +6,9 @@ import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import { ThemeProvider, LayoutProvider } from "@once-ui-system/core";
 
+import {FooterSection} from "@/components/footerSection";
+import {HeaderSection} from "@/components/headerSection";
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'], // Regular, Medium, SemiBold, Bold
@@ -55,7 +58,9 @@ export default function RootLayout({
 
         <LayoutProvider>
           <ThemeProvider>
+            <HeaderSection />
             {children}
+            <FooterSection />
           </ThemeProvider>
         </LayoutProvider>
       </body>
