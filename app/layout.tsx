@@ -12,7 +12,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   variable: '--font-plus-jakarta', // Opcional: para usar con Tailwind CSS
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://next-js-portfolio-three.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ethangrane.vercel.app";
 
 const jsonLd = {
   "@context": "https://schema.org",
