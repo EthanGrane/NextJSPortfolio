@@ -7,16 +7,25 @@ import { ProjectItem } from "@/components/projectItem";
 import { TechCard } from "@/components/techCard";
 import { techStack } from "@/components/techStack";
 
-import { Background, RevealFx } from "@once-ui-system/core";
+import { Background, RevealFx, LetterFx } from "@once-ui-system/core";
 
 export default function WebPortfolio() {
 
-    {/* Gradient follows mouseX */}
+    {/* Gradient follows mouseX */ }
     const [mouseX, setMouseX] = useState(50);
-    useEffect(() => 
-    {
-        const handleMouseMove = (e: MouseEvent) => setMouseX((e.clientX / window.innerWidth) * 100);
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            // Prevent mobile interaction
+            if (window.innerWidth > window.innerHeight)
+            {
+                const xValue =(e.clientX / window.innerWidth) * 100
+                setMouseX(Math.min(Math.max(xValue, 25), 75));
+            }
+        }
+
         window.addEventListener("mousemove", handleMouseMove);
+
+
     }, []);
 
     return (
@@ -55,7 +64,11 @@ export default function WebPortfolio() {
                 {/* - Presentation */}
                 <div className="flex flex-col items-center justify-center py-10 text-center relative z-10">
                     <p className="text-lg font-bold sm:text-xl">Hey, my name is</p>
-                    <p className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Ethan Grané Garcia</p>
+
+                    <LetterFx trigger="instant" speed="medium" className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+                        Ethan Grané Garcia
+                    </LetterFx>
+
                     <GradientText_Purple_Orange
                         text="A Full-Stack Developer with a passion for creating and innovative."
                         className="max-w-2xl text-3xl font-[900] tracking-tight sm:text-5xl md:text-6xl"
