@@ -8,7 +8,8 @@ const HeaderSection = () => {
 
     return (
         <header className="fixed top-0 left-0 w-full bg-[#171717]/60 backdrop-blur-sm z-50 border-b border-white/[0.06]">
-            <nav className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
+            <nav className="max-w-5xl mx-auto flex flex-col md:flex-row gap-2 items-center justify-between px-6 py-4">
+
                 <p className="text-base font-semibold tracking-tight text-white select-none">
                     Ethan Grane Website
                 </p>
