@@ -1,7 +1,7 @@
 const FooterSection = () => (
-    <footer className="w-full bg-[#171717] p-6">
+    <footer className="w-full bg-[#171717] p-6 overflow-x-hidden">
 
-        <div className="flex flex-row">
+        <div className="flex flex-col md:flex-row">
             <div className="flex flex-col items-start w-full md:w-3/4 mb-12">
                 <p className="text-xl font-bold">
                     Ethan Grane Portfolio
@@ -10,10 +10,10 @@ const FooterSection = () => (
 
             <div className="flex flex-col items-start w-full md:w-1/4 md:ml-auto mb-12">
                 <p className="text-xl font-bold">Contact</p>
-                <div className="pl-12 space-y-2">
+                <div className="pl-0 md:pl-12 space-y-2">
                     <a
                         href="mailto:EthanGraneGarcia.Job@gmail.com"
-                        className="block text-lg hover:underline"
+                        className="block text-lg hover:underline break-words"
                     >
                         EthanGraneGarcia.Job@gmail.com
                     </a>
