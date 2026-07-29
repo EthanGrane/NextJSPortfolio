@@ -37,7 +37,7 @@ export default function WebPortfolio() {
                 <RevealFx fill position="absolute">
                     <Background
                         style={{
-                            "--custom-gradient-color": "#313131",
+                            "--custom-gradient-color": "#1b361b",
                         } as React.CSSProperties}
                         gradient={{
                             display: true,
