@@ -19,18 +19,25 @@ const HeaderSection = () => {
                         <Link
                             href="/"
                             className={`transition-colors hover:text-white underline-offset-4 ${pathname === "/"
-                                    ? "!text-white !underline !decoration-2"
-                                    : "no-underline"
+                                ? "!text-white !underline !decoration-2"
+                                : "no-underline"
                                 }`}>
                             Web
                         </Link>
                     </li>
-                    <li className="flex items-center gap-1.5 text-white/25 cursor-default select-none">
-                        Game Dev
-                        <span className="text-[9px] normal-case tracking-normal border border-white/15 rounded-full px-1.5 py-0.5">
-                            Soon
-                        </span>
+
+                    <li>
+                        <Link
+                            href="/gamedev"
+                            className={`transition-colors hover:text-white underline-offset-4 ${pathname === "/gamedev"
+                                ? "!text-white !underline !decoration-2"
+                                : "no-underline"
+                                }`}>
+                            Game Dev
+                        </Link>
                     </li>
+
+
                     <li className="flex items-center gap-1.5 text-white/25 cursor-default select-none">
                         Blog
                         <span className="text-[9px] normal-case tracking-normal border border-white/15 rounded-full px-1.5 py-0.5">
