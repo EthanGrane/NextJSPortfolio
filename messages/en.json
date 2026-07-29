@@ -1,0 +1,75 @@
+{
+    "Footer": {
+        "portfolioName": "Ethan Grane Portfolio",
+        "contact": "Contact",
+        "madeWith": "Made with Next.js & Once UI"
+    },
+    "Header": {
+        "siteName": "Ethan Grane Website",
+        "web": "Web",
+        "gameDev": "Game Dev",
+        "blog": "Blog",
+        "soon": "Soon"
+    },
+    "WebPortfolio": {
+        "greeting": "Hey, my name is",
+        "heroDescription": "A Full-Stack Developer with a passion for creating and innovative.",
+        "skillsTitle": "My Skills",
+        "projectsTitle": "My Projects",
+        "aboutTitle": "About me",
+        "aboutParagraph1": "Hi, im Ethan Grané, a Fullstack Developer based in Barcelona currently focused on React and Next.js. Im passionate about building clean, thoughtfully designed web interfaces.",
+        "aboutParagraph2": "I have been passionate about programming since I was a child. I consider it both my hobby and my profession in equal measure. I am always looking for opportunities to learn, grow, and contribute to more complex and challenging projects.",
+        "aboutParagraph3": "Ive also been making games in Unity as a personal hobby since I was 16, which gave me a solid foundation in logic, performance, and problem-solving.",
+        "projects": {
+            "socialNetwork": {
+                "title": "Social Network with VUE & Laravel",
+                "description": "A location-based social network where users can create posts tied to any point on the map, combining social interaction with geolocation to provide a unique way of discovering content.",
+                "timeline": {
+                    "kickoff": "Project kickoff",
+                    "delivery": "Project delivery"
+                }
+            },
+            "steamMarketAnalyzer": {
+                "title": "Steam Market Analyzer",
+                "description": "Steam Market Analyzer is a mobile application developed with React Native that allows developers, analysts, and enthusiasts in the video game industry to study the Steam market quickly and intuitively.",
+                "timeline": {
+                    "kickoff": "Project kickoff",
+                    "mvp": "MVP",
+                    "delivery": "Project delivery",
+                    "undefined": "Undefined"
+                }
+            },
+            "digitalLogicSimulator": {
+                "title": "Digital Logic Simulator",
+                "description": "In this project I made a logic gate simulator where you can create your own logic gates and combine them infinitely; the maximum calculation capacity I have tested has been a basic binary calculator. With this project I got an excellent grade in advanced programming",
+                "timeline": {
+                    "kickoff": "Project kickoff",
+                    "mvp": "MVP"
+                }
+            }
+        }
+    },
+
+    "GameDevPortfolio": {
+        "greeting": "Hey, my name is",
+        "heroDescription": "A Unity3D Game Developer.",
+        "gamesTitle": "My Games",
+        "prototypesTitle": "My Favorite Prototypes",
+        "games": {
+            "gattosPizzeria": {
+                "title": "Gatto's Pizzeria",
+                "description": "In this first-person cozy cooking game, you can choose between 5 adorable cats and manage a small pizzeria full of hungry human customers."
+            }
+        },
+        "prototypes": {
+            "factorioClicker": {
+                "title": "Factorio Clicker",
+                "description": "A first-person game that blends Factorio and CookieClicker. In this prototype, your goal is to automate the collection and sale of resources to improve your buildings and abilities."
+            },
+            "deterministicFactoryGame": {
+                "title": "Deterministic Factory Game",
+                "description": "A 2D top-down game where you must defend yourself against enemies in a tower defense style by building defenses similar to Factorio. Modify the enemy's path to give yourself more time to defeat them before they reach your base."
+            }
+        }
+    }
+}

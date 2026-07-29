@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 import { GradientText_Green_White, GradientText_Grey_White } from "@/components/gradientText";
 import { GameItem } from "@/components/gameItem";
@@ -24,6 +25,8 @@ export default function WebPortfolio() {
 
 
     }, []);
+
+    const t = useTranslations("GameDevPortfolio");
 
     return (
         <div className="flex flex-col items-center justify-center w-full">
@@ -60,7 +63,7 @@ export default function WebPortfolio() {
 
                 {/* - Presentation */}
                 <div className="flex flex-col items-center justify-center py-10 text-center relative z-10">
-                    <p className="text-lg font-bold sm:text-xl">Hey, my name is</p>
+                    <p className="text-lg font-bold sm:text-xl">{t("greeting")}</p>
 
                     <h1 className="flex flex-col items-center gap-2">
                         <LetterFx trigger="instant" speed="medium" className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
@@ -68,7 +71,7 @@ export default function WebPortfolio() {
                         </LetterFx>
 
                         <GradientText_Green_White
-                            text="A Unity3D Game Developer."
+                            text={t("heroDescription")}
                             className="max-w-2xl text-3xl font-[900] tracking-tight sm:text-5xl md:text-6xl"
                         />
                     </h1>
@@ -79,15 +82,15 @@ export default function WebPortfolio() {
             <section className="w-full flex flex-col items-center" aria-labelledby="projects-heading">
                 <GradientText_Grey_White
                     className="text-4xl font-bold tracking-tight sm:text-5xl m-3 mb-16 md:mb-32"
-                    text="My Games"
+                    text={t("gamesTitle")}
                     angle={0}
                     as="h2"
                     id="projects-heading"
                 />
 
                 <GameItem
-                    title="Gatto's Pizzeria"
-                    description="In this first-person cozy cooking game, you can choose between 5 adorable cats and manage a small pizzeria full of hungry human customers."
+                    title={t("games.gattosPizzeria.title")}
+                    description={t("games.gattosPizzeria.description")}
                     youtubeLink=""
                     images={[
                         { slide: "/games/GattosPizzeria_Image1.png", alt: "Social network feed showing posts pinned to a map" },
@@ -101,22 +104,22 @@ export default function WebPortfolio() {
             <section className="w-full flex flex-col items-center" aria-labelledby="projects-heading">
                 <GradientText_Grey_White
                     className="text-4xl font-bold tracking-tight sm:text-5xl m-3 mb-16 md:mb-32"
-                    text="My Favorite Prototypes"
+                    text={t("prototypesTitle")}
                     angle={0}
                     as="h2"
                     id="projects-heading"
                 />
 
                 <GameItem
-                    title="Factorio Clicker"
-                    description="A first-person game that blends Factorio and CookieClicker. In this prototype, your goal is to automate the collection and sale of resources to improve your buildings and abilities."
+                    title={t("prototypes.factorioClicker.title")}
+                    description={t("prototypes.factorioClicker.description")}
                     youtubeLink="https://www.youtube.com/watch?v=RlD0FcA5vko"
                     repoLink="https://github.com/EthanGrane/ClickerFactorio"
                 />
 
                 <GameItem
-                    title="Deterministic Factory Game"
-                    description="A 2D top-down game where you must defend yourself against enemies in a tower defense style by building defenses similar to Factorio. Modify the enemy's path to give yourself more time to defeat them before they reach your base."
+                    title={t("prototypes.deterministicFactoryGame.title")}
+                    description={t("prototypes.deterministicFactoryGame.description")}
                     youtubeLink="https://www.youtube.com/watch?v=NTykMgVD5Tg"
                     repoLink="https://github.com/EthanGrane/DeterministicFactoryGame"
                 />

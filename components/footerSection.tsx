@@ -1,41 +1,50 @@
-const FooterSection = () => (
-    <footer className="w-full bg-[#171717] p-6 overflow-x-hidden">
+"use client";
 
-        <div className="flex flex-col md:flex-row">
-            <div className="flex flex-col items-start w-full md:w-3/4 mb-12">
-                <p className="text-xl font-bold">
-                    Ethan Grane Portfolio
-                </p>
-            </div>
+import { useTranslations } from "next-intl";
 
-            <div className="flex flex-col items-start w-full md:w-1/4 md:ml-auto mb-12">
-                <p className="text-xl font-bold">Contact</p>
-                <div className="pl-0 md:pl-12 space-y-2">
-                    <a
-                        href="mailto:EthanGraneGarcia.Job@gmail.com"
-                        className="block text-lg hover:underline break-words"
-                    >
-                        EthanGraneGarcia.Job@gmail.com
-                    </a>
+const FooterSection = () => {
+    const t = useTranslations("Footer");
 
-                    <a
-                        href="https://github.com/EthanGrane"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block text-lg hover:underline"
-                    >
-                        github.com/EthanGrane
-                    </a>
+    return (
+        <footer className="w-full bg-[#171717] p-6 overflow-x-hidden">
+
+            <div className="flex flex-col md:flex-row">
+                <div className="flex flex-col items-start w-full md:w-3/4 mb-12">
+                    <p className="text-xl font-bold">
+                        {t("portfolioName")}
+                    </p>
+                </div>
+
+                <div className="flex flex-col items-start w-full md:w-1/4 md:ml-auto mb-12">
+                    <p className="text-xl font-bold">{t("contact")}:</p>
+                    <div className="pl-0 md:pl-12 space-y-2">
+                        
+                        <a
+                            href="mailto:EthanGraneGarcia.Job@gmail.com"
+                            className="block text-m hover:underline break-words ml-6"
+                        >
+                            EthanGraneGarcia.Job@gmail.com
+                        </a>
+
+                        <a
+                            href="https://github.com/EthanGrane"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block text-m hover:underline break-words ml-6"
+                        >
+                            github.com/EthanGrane
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <hr className="my-4" />
+            <hr className="my-4" />
 
-        <p className="text-center m-2">
-            Made with Next.js & Once UI
-        </p>
-    </footer>
-);
+            <p className="text-center m-2">
+                {t("madeWith")}
+            </p>
+        </footer>
+    );
+};
 
 export { FooterSection };

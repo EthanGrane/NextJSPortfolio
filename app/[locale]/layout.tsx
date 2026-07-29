@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getLocale } from 'next-intl/server';
+
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import "./globals.css";
-
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import { ThemeProvider, LayoutProvider } from "@once-ui-system/core";
@@ -11,8 +13,8 @@ import { HeaderSection } from "@/components/headerSection";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'], // Regular, Medium, SemiBold, Bold
-  variable: '--font-plus-jakarta', // Opcional: para usar con Tailwind CSS
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-plus-jakarta',
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ethangrane.vercel.app";
@@ -37,31 +39,32 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${plusJakartaSans.variable} h-full antialiased`}
       style={{ colorScheme: "dark" }}
     >
       <body className="h-full">
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-
-        <LayoutProvider>
-          <ThemeProvider>
-            <HeaderSection />
-            {children}
-            <FooterSection />
-          </ThemeProvider>
-        </LayoutProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <LayoutProvider>
+            <ThemeProvider>
+              <HeaderSection />
+              {children}
+              <FooterSection />
+            </ThemeProvider>
+          </LayoutProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

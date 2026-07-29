@@ -1,0 +1,74 @@
+{
+    "Footer": {
+        "portfolioName": "Portfolio de Ethan Grané",
+        "contact": "Contacto",
+        "madeWith": "Hecho con Next.js & Once UI"
+    },
+    "Header": {
+        "siteName": "Web de Ethan Grané",
+        "web": "Web",
+        "gameDev": "Videojuegos",
+        "blog": "Blog",
+        "soon": "Pronto"
+    },
+    "WebPortfolio": {
+        "greeting": "Hola, mi nombre es",
+        "heroDescription": "Desarrollador Full-Stack apasionado por crear cosas innovadoras.",
+        "skillsTitle": "Mis Habilidades",
+        "projectsTitle": "Mis Proyectos",
+        "aboutTitle": "Sobre mí",
+        "aboutParagraph1": "Hola, soy Ethan Grané, desarrollador Full-Stack de Barcelona, actualmente centrado en React y Next.js. Me apasiona construir interfaces web limpias y bien pensadas.",
+        "aboutParagraph2": "Me apasiona la programación desde que era niño. La considero tanto mi hobby como mi profesión a partes iguales. Siempre estoy buscando oportunidades para aprender, crecer y contribuir a proyectos más complejos y desafiantes.",
+        "aboutParagraph3": "También llevo haciendo videojuegos en Unity como hobby personal desde los 16 años, lo que me dio una base sólida en lógica, rendimiento y resolución de problemas.",
+        "projects": {
+            "socialNetwork": {
+                "title": "Red Social con VUE & Laravel",
+                "description": "Una red social basada en ubicación donde los usuarios pueden crear publicaciones vinculadas a cualquier punto del mapa, combinando interacción social con geolocalización para ofrecer una forma única de descubrir contenido.",
+                "timeline": {
+                    "kickoff": "Inicio del proyecto",
+                    "delivery": "Entrega del proyecto"
+                }
+            },
+            "steamMarketAnalyzer": {
+                "title": "Steam Market Analyzer",
+                "description": "Steam Market Analyzer es una aplicación móvil desarrollada con React Native que permite a desarrolladores, analistas y entusiastas de la industria de los videojuegos estudiar el mercado de Steam de forma rápida e intuitiva.",
+                "timeline": {
+                    "kickoff": "Inicio del proyecto",
+                    "mvp": "MVP",
+                    "delivery": "Entrega del proyecto",
+                    "undefined": "Sin definir"
+                }
+            },
+            "digitalLogicSimulator": {
+                "title": "Simulador de Lógica Digital",
+                "description": "En este proyecto hice un simulador de puertas lógicas donde puedes crear tus propias puertas y combinarlas infinitamente; la capacidad de cálculo máxima que he probado ha sido una calculadora binaria básica. Con este proyecto obtuve una excelente nota en programación avanzada.",
+                "timeline": {
+                    "kickoff": "Inicio del proyecto",
+                    "mvp": "MVP"
+                }
+            }
+        }
+    },
+    "GameDevPortfolio": {
+        "greeting": "Hola, mi nombre es",
+        "heroDescription": "Desarrollador de videojuegos con Unity3D.",
+        "gamesTitle": "Mis Juegos",
+        "prototypesTitle": "Mis Prototipos Favoritos",
+        "games": {
+            "gattosPizzeria": {
+                "title": "Gatto's Pizzeria",
+                "description": "En este juego de cocina en primera persona, puedes elegir entre 5 adorables gatos y gestionar una pequeña pizzería llena de clientes humanos hambrientos."
+            }
+        },
+        "prototypes": {
+            "factorioClicker": {
+                "title": "Factorio Clicker",
+                "description": "Un juego en primera persona que mezcla Factorio y CookieClicker. En este prototipo, tu objetivo es automatizar la recolección y venta de recursos para mejorar tus edificios y habilidades."
+            },
+            "deterministicFactoryGame": {
+                "title": "Deterministic Factory Game",
+                "description": "Un juego 2D en vista cenital donde debes defenderte de enemigos al estilo tower defense, construyendo defensas similares a Factorio. Modifica el camino de los enemigos para ganar más tiempo antes de que lleguen a tu base."
+            }
+        }
+    }
+}

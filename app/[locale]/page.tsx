@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 import { GradientText_Purple_Orange, GradientText_Grey_White } from "@/components/gradientText";
 import { ProjectItem } from "@/components/projectItem";
@@ -27,6 +28,8 @@ export default function WebPortfolio() {
 
 
     }, []);
+
+    const t = useTranslations("WebPortfolio");
 
     return (
         <div className="flex flex-col items-center justify-center w-full">
@@ -63,7 +66,7 @@ export default function WebPortfolio() {
 
                 {/* - Presentation */}
                 <div className="flex flex-col items-center justify-center py-10 text-center relative z-10">
-                    <p className="text-lg font-bold sm:text-xl">Hey, my name is</p>
+                    <p className="text-lg font-bold sm:text-xl">{t("greeting")}</p>
 
                     <h1 className="flex flex-col items-center gap-2">
                         <LetterFx trigger="instant" speed="medium" className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
@@ -71,7 +74,7 @@ export default function WebPortfolio() {
                         </LetterFx>
 
                         <GradientText_Purple_Orange
-                            text="A Full-Stack Developer with a passion for creating and innovative."
+                            text={t("heroDescription")}
                             className="max-w-2xl text-3xl font-[900] tracking-tight sm:text-5xl md:text-6xl"
                         />
                     </h1>
@@ -81,7 +84,7 @@ export default function WebPortfolio() {
             {/* My skills (card with tech icons) */}
             <section className="w-full flex flex-col items-center" aria-labelledby="skills-heading">
                 <GradientText_Grey_White
-                    text="My Skills"
+                    text={t("skillsTitle")}
                     className="text-3xl font-bold tracking-tight sm:text-5xl"
                     angle={0}
                     as="h2"
@@ -109,15 +112,15 @@ export default function WebPortfolio() {
             <section className="w-full flex flex-col items-center" aria-labelledby="projects-heading">
                 <GradientText_Grey_White
                     className="text-4xl font-bold tracking-tight sm:text-5xl"
-                    text="My Projects"
+                    text={t("projectsTitle")}
                     angle={0}
                     as="h2"
                     id="projects-heading"
                 />
 
                 <ProjectItem
-                    title="Social Network with VUE & Laravel"
-                    description="A location-based social network where users can create posts tied to any point on the map, combining social interaction with geolocation to provide a unique way of discovering content."
+                    title={t("projects.socialNetwork.title")}
+                    description={t("projects.socialNetwork.description")}
                     images={[
                         { slide: "/projects/SocialMediaProject_Image1.webp", alt: "Social network feed showing posts pinned to a map" },
                         { slide: "/projects/SocialMediaProject_Image2.webp", alt: "Social network post creation screen with location picker" },
@@ -125,15 +128,14 @@ export default function WebPortfolio() {
                     ]}
                     tags={["HTML", "CSS", "JavaScript", "VUE", "PHP", "LARAVEL", "MAPBOXGL"]}
                     timeline={[
-
                         {
                             label: "January 2025",
-                            description: "Project kickoff",
+                            description: t("projects.socialNetwork.timeline.kickoff"),
                             state: "active"
                         },
                         {
                             label: "April 2025",
-                            description: "Project delivery",
+                            description: t("projects.socialNetwork.timeline.delivery"),
                             state: "success"
                         }
                     ]}
@@ -142,10 +144,8 @@ export default function WebPortfolio() {
 
 
                 <ProjectItem
-                    title="Steam Market Analyzer"
-                    description="
-                Steam Market Analyzer is a mobile application developed with React Native that allows developers, analysts, and enthusiasts in the video game industry to study the Steam market quickly and intuitively.
-                "
+                    title={t("projects.steamMarketAnalyzer.title")}
+                    description={t("projects.steamMarketAnalyzer.description")}
                     images={[
                         { slide: "/projects/SteamMarketAnalyzer_Image1.webp", alt: "Steam Market Analyzer dashboard showing market trends" },
                         { slide: "/projects/SteamMarketAnalyzer_Image2.webp", alt: "Steam Market Analyzer game comparison screen" },
@@ -155,17 +155,17 @@ export default function WebPortfolio() {
                     timeline={[
                         {
                             label: "April 2026",
-                            description: "Project kickoff",
+                            description: t("projects.steamMarketAnalyzer.timeline.kickoff"),
                             state: "active"
                         },
                         {
                             label: "May 2026",
-                            description: "MVP",
+                            description: t("projects.steamMarketAnalyzer.timeline.mvp"),
                             state: "success"
                         },
                         {
                             label: "Undefined",
-                            description: "Project delivery",
+                            description: t("projects.steamMarketAnalyzer.timeline.delivery"),
                             state: "default"
                         }
                     ]}
@@ -174,11 +174,8 @@ export default function WebPortfolio() {
                 />
 
                 <ProjectItem
-                    title="Digital Logic Simulator"
-                    description="
-                In this project I made a logic gate simulator where you can create your own logic gates and combine them infinitely; the maximum calculation capacity I have tested has been a basic binary calculator.
-                With this project I got an excellent grade in advanced programming
-                "
+                    title={t("projects.digitalLogicSimulator.title")}
+                    description={t("projects.digitalLogicSimulator.description")}
                     images={[
                         { slide: "/projects/DigitalLogicSimulator_Gif.gif", alt: "Digital Logic Simulator demo showing gates connected together" },
                         { slide: "/projects/DigitalLogicSimulator_Image1.webp", alt: "Digital Logic Simulator interface with custom logic gates" },
@@ -188,12 +185,12 @@ export default function WebPortfolio() {
                     timeline={[
                         {
                             label: "October 2024",
-                            description: "Project kickoff",
+                            description: t("projects.digitalLogicSimulator.timeline.kickoff"),
                             state: "active"
                         },
                         {
                             label: "April 2024",
-                            description: "MVP",
+                            description: t("projects.digitalLogicSimulator.timeline.mvp"),
                             state: "success"
                         }
                     ]}
@@ -214,7 +211,7 @@ export default function WebPortfolio() {
                         aria-labelledby="about-heading"
                     >
                         <GradientText_Grey_White
-                            text="About me"
+                            text={t("aboutTitle")}
                             className="text-3xl font-bold tracking-tight sm:text-5xl mb-6"
                             angle={0}
                             as="h2"
@@ -222,15 +219,15 @@ export default function WebPortfolio() {
                         />
 
                         <p className="max-w-2xl text-neutral-300 leading-relaxed mb-16 md:mb-16">
-                            Hi, im Ethan Grané, a Fullstack Developer based in Barcelona currently focused on React and Next.js. Im passionate about building clean, thoughtfully designed web interfaces.
+                            {t("aboutParagraph1")}
                         </p>
 
                         <p className="max-w-2xl text-neutral-300 leading-relaxed mb-16 md:mb-16">
-                            I have been passionate about programming since I was a child. I consider it both my hobby and my profession in equal measure. I am always looking for opportunities to learn, grow, and contribute to more complex and challenging projects.
+                            {t("aboutParagraph2")}
                         </p>
 
                         <p className="max-w-2xl text-neutral-300 leading-relaxed mb-16 md:mb-16">
-                            Ive also been making games in Unity as a personal hobby since I was 16, which gave me a solid foundation in logic, performance, and problem-solving.
+                            {t("aboutParagraph3")}
                         </p>
                     </section>
                 </div>
