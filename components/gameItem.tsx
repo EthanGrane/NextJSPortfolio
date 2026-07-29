@@ -60,10 +60,12 @@ const GameItem = ({
                         />
                     </div>
                 ) : (
-                    <Carousel
-                        play={{ auto: true, interval: 5000, controls: false }}
-                        items={imagesWithAlt}
-                    />
+                    <a href={deployLink}>
+                        <Carousel
+                            play={{ auto: true, interval: 5000, controls: false }}
+                            items={imagesWithAlt}
+                        />
+                    </a>
                 )}
             </div>
 
