@@ -13,33 +13,29 @@ export function LanguageSwitcher() {
     };
 
     return (
-        <div className="flex items-center gap-3 text-[13px] font-medium uppercase tracking-wider text-white/50">
+        <div className="inline-flex items-center rounded-full border border-white/15 p-0.5 text-sm">
             <button
+                type="button"
+                aria-current={locale === "en"}
                 onClick={() => switchTo("en")}
-                disabled={locale === "en"}
-                className={`transition-colors hover:text-white underline-offset-4 ${locale === "en"
-                    ? "!text-white !underline !decoration-2"
-                    : "no-underline"
+                className={`rounded-full px-2.5 py-1 text-xs transition-colors ${locale === "en"
+                    ? "bg-white text-[#171717]"
+                    : "text-white/50 hover:text-white"
                     }`}
             >
                 EN
             </button>
-
-            <span className="text-white/20 select-none">/</span>
-
             <button
+                type="button"
+                aria-current={locale === "es"}
                 onClick={() => switchTo("es")}
-                disabled={locale === "es"}
-                className={`transition-colors hover:text-white underline-offset-4 ${locale === "es"
-                    ? "!text-white !underline !decoration-2"
-                    : "no-underline"
+                className={`rounded-full px-2.5 py-1 text-xs transition-colors ${locale === "es"
+                    ? "bg-white text-[#171717]"
+                    : "text-white/50 hover:text-white"
                     }`}
             >
                 ES
             </button>
-
-
-
         </div>
     );
 }
