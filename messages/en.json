@@ -2,7 +2,8 @@
     "Footer": {
         "portfolioName": "Ethan Grane Portfolio",
         "contact": "Contact",
-        "madeWith": "Made with Next.js & Once UI"
+        "madeWith": "Made with Next.js & Once UI",
+        "allRightsReserved": "Almost all rights reserved"
     },
     "Header": {
         "siteName": "Ethan Grane Website",
@@ -49,7 +50,6 @@
             }
         }
     },
-
     "GameDevPortfolio": {
         "greeting": "Hey, my name is",
         "heroDescription": "A Unity3D Game Developer.",

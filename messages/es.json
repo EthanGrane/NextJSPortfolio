@@ -2,7 +2,8 @@
     "Footer": {
         "portfolioName": "Portfolio de Ethan Grané",
         "contact": "Contacto",
-        "madeWith": "Hecho con Next.js & Once UI"
+        "madeWith": "Hecho con Next.js & Once UI",
+        "allRightsReserved": "Casi todos los derechos reservados"
     },
     "Header": {
         "siteName": "Web de Ethan Grané",

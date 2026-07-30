@@ -18,7 +18,7 @@ const FooterSection = () => {
                 <div className="flex flex-col items-start w-full md:w-1/4 md:ml-auto mb-12">
                     <p className="text-xl font-bold">{t("contact")}:</p>
                     <div className="pl-0 md:pl-12 space-y-2">
-                        
+
                         <a
                             href="mailto:EthanGraneGarcia.Job@gmail.com"
                             className="block text-m hover:underline break-words ml-6"
@@ -40,6 +40,9 @@ const FooterSection = () => {
 
             <hr className="my-4" />
 
+            <p className="text-center m-2">
+                © 2026 Ethan Grané · {t("allRightsReserved")}
+            </p>
             <p className="text-center m-2">
                 {t("madeWith")}
             </p>
