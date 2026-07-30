@@ -17,7 +17,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   variable: '--font-plus-jakarta',
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ethangrane.vercel.app";
+const SITE_URL = "https://www.ethangrane.com";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -25,7 +25,6 @@ const jsonLd = {
   name: "Ethan Grané García",
   url: SITE_URL,
   jobTitle: "Full-Stack Developer",
-  sameAs: ["https://github.com/EthanGrane"],
 };
 
 export const metadata: Metadata = {

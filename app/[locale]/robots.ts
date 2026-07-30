@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://ethangrane.github.io/EthanGraneWeb/"; // debe coincidir con el de page.tsx
+const SITE_URL = "https://www.ethangrane.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${SITE_URL}sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }
