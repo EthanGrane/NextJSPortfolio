@@ -1,20 +1,15 @@
 import { getRequestConfig } from "next-intl/server";
-import { cookies } from "next/headers";
+import { hasLocale } from "next-intl";
 import { routing } from "./routing";
 
-export default getRequestConfig(async () => {
-    const cookieStore = await cookies();
-    const locale =
-        cookieStore.get("NEXT_LOCALE")?.value ?? routing.defaultLocale;
+export default getRequestConfig(async ({ requestLocale }) => {
+    const requested = await requestLocale;
+    const locale = hasLocale(routing.locales, requested)
+        ? requested
+        : routing.defaultLocale;
 
-    console.log("🔍 next-intl locale resuelto:", locale);
-
-    try {
-        const messages = (await import(`../messages/${locale}.json`)).default;
-        console.log("✅ mensajes cargados:", Object.keys(messages));
-        return { locale, messages };
-    } catch (err) {
-        console.error("❌ error cargando mensajes:", err);
-        throw err;
-    }
+    return {
+        locale,
+        messages: (await import(`../messages/${locale}.json`)).default,
+    };
 });
