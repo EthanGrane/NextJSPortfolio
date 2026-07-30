@@ -59,7 +59,7 @@ export default function WebPortfolio() {
                 </RevealFx>
 
                 {/* Spacer */}
-                <div style={{ height: "4rem" }} />
+                <div style={{ height: "6rem" }} />
 
                 {/* - Presentation */}
                 <div className="flex flex-col items-center justify-center py-10 text-center relative z-10">
@@ -81,7 +81,7 @@ export default function WebPortfolio() {
             {/* Games */}
             <section className="w-full flex flex-col items-center" aria-labelledby="projects-heading">
                 <GradientText_Grey_White
-                    className="text-4xl font-bold tracking-tight sm:text-5xl m-3 mb-16 md:mb-32"
+                    className="text-4xl font-bold tracking-tight sm:text-5xl m-3 mb-8 md:mb-12"
                     text={t("gamesTitle")}
                     angle={0}
                     as="h2"
@@ -100,10 +100,13 @@ export default function WebPortfolio() {
 
             </section>
 
+            {/* Spacer */}
+            <div style={{ height: "6rem" }} />
+
             {/* Prototipes */}
             <section className="w-full flex flex-col items-center" aria-labelledby="projects-heading">
                 <GradientText_Grey_White
-                    className="text-4xl font-bold tracking-tight sm:text-5xl m-3 mb-16 md:mb-32"
+                    className="text-4xl font-bold tracking-tight sm:text-5xl m-3 mb-8 md:mb-12"
                     text={t("prototypesTitle")}
                     angle={0}
                     as="h2"
