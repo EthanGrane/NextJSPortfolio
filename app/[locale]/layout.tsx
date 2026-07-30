@@ -58,7 +58,7 @@ export default async function RootLayout({
         />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LayoutProvider>
-            <ThemeProvider>
+            <ThemeProvider theme="dark">
               <HeaderSection />
               {children}
               <FooterSection />
