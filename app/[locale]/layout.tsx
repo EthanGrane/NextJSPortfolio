@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getLocale } from 'next-intl/server';
+import { Analytics } from "@vercel/analytics/next"
 
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import "./globals.css";
@@ -55,6 +56,8 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Analytics />
+
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LayoutProvider>
             <ThemeProvider theme="dark">
