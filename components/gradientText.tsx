@@ -8,7 +8,7 @@ interface GradientTextProps {
     id?: string;
 }
 
-const GradientText_Purple_Orange = ({
+const GradientText_Purple = ({
     text,
     className,
     angle = 135,
@@ -20,7 +20,7 @@ const GradientText_Purple_Orange = ({
             id={id}
             className={`bg-clip-text text-transparent py-6 mb-16 md:mb-32 ${className}`}
             style={{
-                backgroundImage: `linear-gradient(${angle}deg, #a855f7, #fd944a)`,
+                backgroundImage: `linear-gradient(${angle}deg, #a74ffa, #c183fa)`,
             }}
         >
             {text}
@@ -71,4 +71,4 @@ const GradientText_Grey_White = ({
 };
 
 
-export { GradientText_Purple_Orange, GradientText_Grey_White, GradientText_Green_White };
+export { GradientText_Purple as GradientText_Purple_Orange, GradientText_Grey_White, GradientText_Green_White };
