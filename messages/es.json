@@ -55,6 +55,7 @@
         "heroDescription": "Desarrollador de videojuegos con Unity3D.",
         "gamesTitle": "Mis Juegos",
         "prototypesTitle": "Mis Prototipos Favoritos",
+        "assetsTitle": "Mis Assets",
         "games": {
             "gattosPizzeria": {
                 "title": "Gatto's Pizzeria",
@@ -69,6 +70,36 @@
             "deterministicFactoryGame": {
                 "title": "Deterministic Factory Game",
                 "description": "Un juego 2D en vista cenital donde debes defenderte de enemigos al estilo tower defense, construyendo defensas similares a Factorio. Modifica el camino de los enemigos para ganar más tiempo antes de que lleguen a tu base."
+            }
+        },
+        "assets": {
+            "raytracedSpatialAudio": {
+                "title": "Raytraced Spatial Audio",
+                "description": "Un sistema de audio espacial que usa raytracing para generar acústica dinámica y oclusión, de forma que el sonido reacciona a la geometría real de tu escena."
+            },
+            "digAHoleKit": {
+                "title": "Dig a Hole Kit",
+                "description": "Un motor de excavación 3D basado en Jobs y Burst que permite cavar el terreno en tiempo real con gran rendimiento."
+            },
+            "reflectIt": {
+                "title": "Reflect It!",
+                "description": "Un pack de shaders URP de cristal y refracción con estilos estilizado y realista, listo para usar en tu proyecto."
+            },
+            "infestIt": {
+                "title": "Infest It",
+                "description": "Un emisor inteligente de insectos para Unity que llena tus escenas de enjambres vivos."
+            },
+            "soundIt": {
+                "title": "Sound It",
+                "description": "Sound It: Adaptive Audio Source es una herramienta de Unity ligera e intuitiva para crear fuentes de audio dinámicas basadas en formas. Define el audio fácilmente usando mallas, trayectorias o polígonos."
+            },
+            "splineAudioSource": {
+                "title": "Spline Audio Source",
+                "description": "Una herramienta gratuita de Unity que te permite dar forma a las fuentes de audio a lo largo de splines."
+            },
+            "stylizedHandpaintedPack": {
+                "title": "Stylized Handpainted Shader & Textures Pack",
+                "description": "Un pack de shaders y texturas pintadas a mano y estilizadas para URP, con mapeo triplanar y soporte PBR."
             }
         }
     }

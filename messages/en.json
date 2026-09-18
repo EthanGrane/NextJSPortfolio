@@ -18,6 +18,7 @@
         "skillsTitle": "My Skills",
         "projectsTitle": "My Projects",
         "aboutTitle": "About me",
+        "assetsTitle": "My Assets",
         "aboutParagraph1": "Hi, im Ethan Grané, a Fullstack Developer based in Barcelona currently focused on React and Next.js. Im passionate about building clean, thoughtfully designed web interfaces.",
         "aboutParagraph2": "I have been passionate about programming since I was a child. I consider it both my hobby and my profession in equal measure. I am always looking for opportunities to learn, grow, and contribute to more complex and challenging projects.",
         "aboutParagraph3": "Ive also been making games in Unity as a personal hobby since I was 16, which gave me a solid foundation in logic, performance, and problem-solving.",
@@ -69,6 +70,37 @@
             "deterministicFactoryGame": {
                 "title": "Deterministic Factory Game",
                 "description": "A 2D top-down game where you must defend yourself against enemies in a tower defense style by building defenses similar to Factorio. Modify the enemy's path to give yourself more time to defeat them before they reach your base."
+            }
+        },
+        "assetsTitle": "My Assets",
+        "assets": {
+            "raytracedSpatialAudio": {
+                "title": "Raytraced Spatial Audio",
+                "description": "A spatial audio system that uses raytracing to drive dynamic acoustics and occlusion, so sound reacts to the real geometry of your scene."
+            },
+            "digAHoleKit": {
+                "title": "Dig a Hole Kit",
+                "description": "A 3D digging engine built on Jobs and Burst, letting players dig into terrain in real time with great performance."
+            },
+            "reflectIt": {
+                "title": "Reflect It!",
+                "description": "A URP glass and refraction shader pack with both stylized and realistic looks, ready to drop into your project."
+            },
+            "infestIt": {
+                "title": "Infest It",
+                "description": "A smart insect emitter for Unity that fills your scenes with living swarms of insects."
+            },
+            "soundIt": {
+                "title": "Sound It",
+                "description": "Sound It: Adaptive Audio Source is a lightweight and intuitive Unity tool for creating dynamic, shape-based audio sources. Easily define audio using meshes, paths, or polygons."
+            },
+            "splineAudioSource": {
+                "title": "Spline Audio Source",
+                "description": "A free Unity tool that lets you shape audio sources along splines."
+            },
+            "stylizedHandpaintedPack": {
+                "title": "Stylized Handpainted Shader & Textures Pack",
+                "description": "A stylized handpainted shader and texture pack for URP with triplanar mapping and PBR support."
             }
         }
     }

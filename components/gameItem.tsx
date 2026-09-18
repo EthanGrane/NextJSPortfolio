@@ -1,5 +1,5 @@
 import { Carousel, Button, ShineFx } from "@once-ui-system/core";
-import { FaGithub, FaSteam } from "react-icons/fa";
+import { FaGithub, FaSteam, FaUnity } from "react-icons/fa";
 
 export interface GameItemProps {
     title: string;
@@ -8,6 +8,7 @@ export interface GameItemProps {
     images?: { slide: string; alt?: string }[];
     repoLink?: string;
     deployLink?: string;
+    assetStoreLink?: string;
 }
 
 // Extrae el ID de video de distintos formatos de URL de YouTube
@@ -25,7 +26,8 @@ const GameItem = ({
     youtubeLink,
     images,
     repoLink,
-    deployLink
+    deployLink,
+    assetStoreLink
 }: GameItemProps) => {
     const imagesWithAlt: { slide: string; alt: string }[] = images
         ? images.map((image, index) => ({
@@ -59,14 +61,14 @@ const GameItem = ({
                             loading="lazy"
                         />
                     </div>
-                ) : (
+                ) : imagesWithAlt.length > 0 ? (
                     <a href={deployLink}>
                         <Carousel
                             play={{ auto: true, interval: 5000, controls: false }}
                             items={imagesWithAlt}
                         />
                     </a>
-                )}
+                ) : null}
             </div>
 
             {/* Contenido: segundo en mobile, primero en desktop */}
@@ -93,6 +95,22 @@ const GameItem = ({
                                     </span>
                                     <ShineFx inverse>
                                         Play the game
+                                    </ShineFx>
+                                </Button>
+                            }
+
+                            {assetStoreLink &&
+                                <Button
+                                    size="l"
+                                    variant="primary"
+                                    className="ml-auto mt-8"
+                                    href={assetStoreLink}
+                                >
+                                    <span className="mr-4 inline-flex">
+                                        <FaUnity />
+                                    </span>
+                                    <ShineFx inverse>
+                                        View on Asset Store
                                     </ShineFx>
                                 </Button>
                             }

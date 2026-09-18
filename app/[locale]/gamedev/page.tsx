@@ -8,6 +8,44 @@ import { GameItem } from "@/components/gameItem";
 
 import { Background, RevealFx, LetterFx } from "@once-ui-system/core";
 
+// Unity Asset Store packages by Code Trigger (https://assetstore.unity.com/publishers/43932)
+const ASSETS: { key: string; youtubeLink?: string; assetStoreLink: string }[] = [
+    {
+        key: "raytracedSpatialAudio",
+        youtubeLink: "https://www.youtube.com/watch?v=0VxFtoMKp6w",
+        assetStoreLink: "https://assetstore.unity.com/packages/tools/audio/raytraced-spatial-audio-dynamic-acoustics-dynamic-occlusion-402454",
+    },
+    {
+        key: "digAHoleKit",
+        youtubeLink: "https://www.youtube.com/watch?v=0Olvzt5uq7Y",
+        assetStoreLink: "https://assetstore.unity.com/packages/templates/systems/dig-a-hole-kit-3d-digging-engine-jobs-burst-388036",
+    },
+    {
+        key: "reflectIt",
+        youtubeLink: "https://www.youtube.com/watch?v=oy4j9eOQ9aE",
+        assetStoreLink: "https://assetstore.unity.com/packages/vfx/shaders/reflect-it-urp-glass-refraction-shader-pack-stylized-realistic-338954",
+    },
+    {
+        key: "infestIt",
+        youtubeLink: "https://www.youtube.com/watch?v=77an0-IJyoc",
+        assetStoreLink: "https://assetstore.unity.com/packages/tools/behavior-ai/infest-it-smart-insect-emitter-301063",
+    },
+    {
+        key: "soundIt",
+        youtubeLink: "https://www.youtube.com/watch?v=x9IsuMiSq3o",
+        assetStoreLink: "https://assetstore.unity.com/packages/tools/audio/sound-it-shape-based-adaptive-audio-316470",
+    },
+    {
+        key: "splineAudioSource",
+        youtubeLink: "https://www.youtube.com/watch?v=Scx1IsJvmmM",
+        assetStoreLink: "https://assetstore.unity.com/packages/tools/audio/spline-audio-source-306126",
+    },
+    {
+        key: "stylizedHandpaintedPack",
+        assetStoreLink: "https://assetstore.unity.com/packages/vfx/shaders/stylized-handpainted-shader-textures-pack-urp-triplanar-pbr-329434",
+    },
+];
+
 export default function WebPortfolio() {
 
     {/* Gradient follows mouseX */ }
@@ -22,8 +60,7 @@ export default function WebPortfolio() {
         }
 
         window.addEventListener("mousemove", handleMouseMove);
-
-
+        return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
 
     const t = useTranslations("GameDevPortfolio");
@@ -79,13 +116,13 @@ export default function WebPortfolio() {
             </div>
 
             {/* Games */}
-            <section className="w-full flex flex-col items-center" aria-labelledby="projects-heading">
+            <section className="w-full flex flex-col items-center" aria-labelledby="games-heading">
                 <GradientText_Grey_White
                     className="text-4xl font-bold tracking-tight sm:text-5xl m-3 mb-8 md:mb-12"
                     text={t("gamesTitle")}
                     angle={0}
                     as="h2"
-                    id="projects-heading"
+                    id="games-heading"
                 />
 
                 <GameItem
@@ -104,13 +141,13 @@ export default function WebPortfolio() {
             <div style={{ height: "6rem" }} />
 
             {/* Prototipes */}
-            <section className="w-full flex flex-col items-center" aria-labelledby="projects-heading">
+            <section className="w-full flex flex-col items-center" aria-labelledby="prototypes-heading">
                 <GradientText_Grey_White
                     className="text-4xl font-bold tracking-tight sm:text-5xl m-3 mb-8 md:mb-12"
                     text={t("prototypesTitle")}
                     angle={0}
                     as="h2"
-                    id="projects-heading"
+                    id="prototypes-heading"
                 />
 
                 <GameItem
@@ -127,6 +164,26 @@ export default function WebPortfolio() {
                     repoLink="https://github.com/EthanGrane/DeterministicFactoryGame"
                 />
 
+            </section>
+
+            <section className="w-full flex flex-col items-center" aria-labelledby="assets-heading">
+                <GradientText_Grey_White
+                    className="text-4xl font-bold tracking-tight sm:text-5xl m-3 mb-8 md:mb-12"
+                    text={t("assetsTitle")}
+                    angle={0}
+                    as="h2"
+                    id="assets-heading"
+                />
+
+                {ASSETS.map((asset) => (
+                    <GameItem
+                        key={asset.key}
+                        title={t(`assets.${asset.key}.title`)}
+                        description={t(`assets.${asset.key}.description`)}
+                        youtubeLink={asset.youtubeLink}
+                        assetStoreLink={asset.assetStoreLink}
+                    />
+                ))}
             </section>
 
             {/* Spacer */}
