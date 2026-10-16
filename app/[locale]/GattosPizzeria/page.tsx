@@ -147,7 +147,6 @@ export default function GattosPizzeriaPage() {
                     <Image src={LOGO.src} alt="Gatto's Pizzeria" width={LOGO.width} height={LOGO.height} className={styles.footerLogo} />
                     <div className={styles.footerLinks}>
                         <a href={STEAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Steam"><FaSteam /></a>
-                        <a href="https://github.com/EthanGrane" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
                         <a href="mailto:EthanGraneGarcia.Job@gmail.com" aria-label="Email"><FaEnvelope /></a>
                     </div>
                     <div className={styles.navSpacer} />
