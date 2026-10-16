@@ -1,5 +1,5 @@
 import { Carousel, Button, ShineFx } from "@once-ui-system/core";
-import { FaGithub, FaSteam, FaUnity } from "react-icons/fa";
+import { FaGithub, FaGlobe, FaSteam, FaUnity } from "react-icons/fa";
 
 export interface GameItemProps {
     title: string;
@@ -8,6 +8,8 @@ export interface GameItemProps {
     images?: { slide: string; alt?: string }[];
     repoLink?: string;
     deployLink?: string;
+    // Link to the game's own landing page, shown under the Steam button
+    gamePageLink?: string;
     assetStoreLink?: string;
 }
 
@@ -27,6 +29,7 @@ const GameItem = ({
     images,
     repoLink,
     deployLink,
+    gamePageLink,
     assetStoreLink
 }: GameItemProps) => {
     const imagesWithAlt: { slide: string; alt: string }[] = images
@@ -97,6 +100,22 @@ const GameItem = ({
                                         Play the game
                                     </ShineFx>
                                 </Button>
+                            }
+
+                            {gamePageLink &&
+                                <div className="flex justify-end">
+                                    <Button
+                                        size="l"
+                                        variant="secondary"
+                                        className="mt-8"
+                                        href={gamePageLink}
+                                    >
+                                        <span className="mr-4 inline-flex">
+                                            <FaGlobe />
+                                        </span>
+                                        Visit the game page
+                                    </Button>
+                                </div>
                             }
 
                             {assetStoreLink &&

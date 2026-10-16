@@ -1,9 +1,14 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/navigation";
 
 const FooterSection = () => {
     const t = useTranslations("Footer");
+    const pathname = usePathname();
+
+    // Game landing pages ship their own footer.
+    if (pathname.startsWith("/GattosPizzeria")) return null;
 
     return (
         <footer className="w-full bg-[#171717] p-6 overflow-x-hidden">

@@ -8,6 +8,9 @@ const HeaderSection = () => {
     const pathname = usePathname();
     const t = useTranslations("Header");
 
+    // Game landing pages ship their own navigation.
+    if (pathname.startsWith("/GattosPizzeria")) return null;
+
     return (
         <header className="fixed top-0 left-0 w-full bg-[#171717]/60 backdrop-blur-sm z-50 border-b border-white/[0.06]">
             <div className="max-w-5xl mx-auto px-6 py-3 md:py-4 grid grid-cols-2 md:grid-cols-[1fr_auto_1fr] items-center gap-y-2">

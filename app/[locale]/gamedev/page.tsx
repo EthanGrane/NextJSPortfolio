@@ -96,6 +96,7 @@ export default function WebPortfolio() {
                         { slide: "/games/GattosPizzeria_Image1.png", alt: "Social network feed showing posts pinned to a map" },
                     ]}
                     deployLink="https://store.steampowered.com/app/3137770/Gattos_Pizzeria/"
+                    gamePageLink="/GattosPizzeria"
                 />
 
             </section>

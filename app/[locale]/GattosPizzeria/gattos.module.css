@@ -1,0 +1,586 @@
+/* Gatto's Pizzeria landing page.
+   Styled with plain CSS instead of Tailwind utilities: the globally loaded
+   Once UI stylesheet ships unlayered classes (`.pt-16`, `a:not(.button)`,
+   `p { margin: 0 }`...) that silently override Tailwind's layered ones. */
+
+.page {
+    --orange: #f89733;
+    --orange-dark: #e07a1c;
+    --cream: #fff4e6;
+    --blue: #49bae3;
+    --night: #3b4080;
+    --brown: #5a2a22;
+    --white: #ffffff;
+    --yellow: #ffd24a;
+
+    font-family: var(--font-gp-body), system-ui, sans-serif;
+    font-weight: 600;
+    color: var(--brown);
+    background: var(--white);
+    overflow-x: clip;
+}
+
+.page a:not(.button) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page h1,
+.page h2,
+.page h3 {
+    font-family: var(--font-gp-display), system-ui, sans-serif;
+    font-weight: 600;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.page p {
+    margin: 0;
+}
+
+.wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* ---------- Pattern backgrounds (see scripts/gattos-patterns.py) ---------- */
+
+.bgMorning { background: url("/games/gattos/patterns/morning.svg") var(--orange); }
+.bgMorningSoft { background: url("/games/gattos/patterns/morning-soft.svg") var(--cream); }
+.bgDay { background: url("/games/gattos/patterns/day.svg") var(--blue); }
+.bgNight { background: url("/games/gattos/patterns/night.svg") var(--night); }
+.bgNeutral { background: url("/games/gattos/patterns/neutral.svg") var(--white); }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--font-gp-display), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 15px 28px;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 3px;
+}
+
+.btnSmall {
+    font-size: 16px;
+    padding: 11px 20px;
+}
+
+.btnLarge {
+    font-size: 24px;
+    padding: 19px 38px;
+}
+
+.page a.btnWhite { background: var(--white); color: var(--orange-dark); }
+.page a.btnGhost { background: rgba(255, 255, 255, 0.16); color: var(--white); box-shadow: inset 0 0 0 3px var(--white); }
+.page a.btnGhost:hover { box-shadow: inset 0 0 0 3px var(--white), 0 6px 0 rgba(0, 0, 0, 0.12); }
+
+/* ---------- Nav ---------- */
+
+.nav {
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: 10;
+    color: var(--white);
+}
+
+.navInner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: 88px;
+}
+
+.navLogo {
+    display: block;
+    width: 150px;
+    height: auto;
+}
+
+.navLinks {
+    display: flex;
+    gap: 26px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-gp-display), system-ui, sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.navLinks a:hover {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 3px;
+}
+
+.navSpacer {
+    flex: 1;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    position: relative;
+    padding: 150px 0 0;
+    text-align: center;
+    overflow: hidden;
+    color: var(--white);
+}
+
+.heroLogo {
+    display: block;
+    width: min(780px, 92vw);
+    height: auto;
+    margin: 0 auto;
+}
+
+.page .tagline {
+    font-size: 24px;
+    font-weight: 800;
+    max-width: 620px;
+    margin: 18px auto 0;
+    padding: 0 16px;
+}
+
+.ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 32px;
+    padding: 0 16px;
+}
+
+.heroCat {
+    display: block;
+    width: 210px;
+    height: auto;
+    margin: 40px auto -64px;
+}
+
+/* ---------- Day phases ---------- */
+
+.phase {
+    padding: 110px 0;
+}
+
+.split {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.splitReverse .splitText {
+    order: -1;
+}
+
+.shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 22px;
+}
+
+/* The night screenshot is dark: frame it and add a warm "window light" glow
+   so it stands out from the night background. */
+.shotFramed {
+    border: 8px solid var(--white);
+    border-radius: 26px;
+    box-shadow: 0 20px 70px rgba(255, 196, 90, 0.45);
+}
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-gp-display), system-ui, sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 7px 15px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+}
+
+.labelMorning { background: #fdd9ae; color: var(--brown); }
+.labelDay { background: rgba(255, 255, 255, 0.25); color: var(--white); }
+.labelNight { background: var(--yellow); color: var(--night); }
+
+.phaseTitle {
+    font-size: 48px;
+}
+
+.page .phaseText {
+    font-size: 18px;
+    line-height: 1.55;
+    opacity: 0.92;
+    margin-top: 14px;
+    max-width: 460px;
+}
+
+/* ---------- Section headings ---------- */
+
+.sectionTitle {
+    font-size: 52px;
+    text-align: center;
+}
+
+.page .sectionSub {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 700;
+    opacity: 0.75;
+    margin-top: 8px;
+}
+
+/* ---------- Gallery ---------- */
+
+.gallery {
+    padding: 110px 0;
+}
+
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 48px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.thumb {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    border: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: zoom-in;
+    background: #f3ece4;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.thumb:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(90, 42, 34, 0.18);
+}
+
+.thumb:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 3px;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(30, 20, 18, 0.88);
+}
+
+.lightboxImage {
+    position: relative;
+    width: min(1200px, 100%);
+    aspect-ratio: 16 / 9;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.lightboxControls {
+    display: flex;
+    gap: 12px;
+}
+
+.roundBtn {
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--brown);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.roundBtn:hover {
+    background: var(--yellow);
+}
+
+/* ---------- Roadmap ---------- */
+
+.roadmap {
+    padding: 100px 0 110px;
+}
+
+.road {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 56px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Dashed "road" behind the milestones */
+.road::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 34px;
+    border-top: 5px dashed #f2c896;
+}
+
+.milestone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 320px;
+}
+
+.pin {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 30px;
+    box-shadow: 0 0 0 8px var(--cream);
+}
+
+.pinDone {
+    background: #5dbb63;
+}
+
+.milestoneCard {
+    margin-top: 20px;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 20px 28px 24px;
+    box-shadow: 0 10px 30px rgba(90, 42, 34, 0.1);
+}
+
+.milestoneDate {
+    font-family: var(--font-gp-display), system-ui, sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--orange-dark);
+}
+
+.page .milestoneTitle {
+    font-size: 30px;
+    margin-top: 4px;
+}
+
+.page .milestoneText {
+    font-size: 16px;
+    opacity: 0.75;
+    margin-top: 6px;
+}
+
+/* ---------- CTA (a new morning) ---------- */
+
+.cta {
+    padding: 100px 0;
+    text-align: center;
+    color: var(--white);
+}
+
+.ctaTitle {
+    font-size: 60px;
+}
+
+.page .ctaText {
+    font-size: 19px;
+    font-weight: 700;
+    max-width: 540px;
+    margin: 12px auto 32px;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background: var(--brown);
+    color: #f6dcc4;
+    padding: 28px 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.footerInner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footerLogo {
+    display: block;
+    width: 120px;
+    height: auto;
+}
+
+.footerLinks {
+    display: flex;
+    gap: 18px;
+    font-size: 22px;
+}
+
+.footerLinks a:hover,
+.footerCredit a:hover {
+    color: var(--yellow);
+}
+
+.page .footerCredit a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ---------- Motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .btn,
+    .thumb {
+        transition: none;
+    }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 860px) {
+    .wrap {
+        padding: 0 20px;
+    }
+
+    .navInner {
+        height: 72px;
+        gap: 16px;
+    }
+
+    .navLogo {
+        width: 120px;
+    }
+
+    .navLinks {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 110px;
+    }
+
+    .page .tagline {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 18px;
+    }
+
+    .heroCat {
+        width: 160px;
+        margin-bottom: -48px;
+    }
+
+    .phase,
+    .gallery,
+    .roadmap,
+    .cta {
+        padding: 72px 0;
+    }
+
+    .split {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .splitReverse .splitText {
+        order: 0;
+    }
+
+    .phaseTitle {
+        font-size: 36px;
+    }
+
+    .sectionTitle {
+        font-size: 40px;
+    }
+
+    .galleryGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 32px;
+    }
+
+    /* Keep the 2-column grid even */
+    .galleryGrid li:nth-child(n + 9) {
+        display: none;
+    }
+
+    .road {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .road::before {
+        left: 50%;
+        right: auto;
+        top: 0;
+        bottom: 0;
+        border-top: 0;
+        border-left: 5px dashed #f2c896;
+    }
+
+    .milestone {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .ctaTitle {
+        font-size: 44px;
+    }
+
+    .footerInner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
