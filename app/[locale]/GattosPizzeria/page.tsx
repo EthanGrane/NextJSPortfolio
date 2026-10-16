@@ -67,7 +67,7 @@ export default function GattosPizzeriaPage() {
                             </a>
                         )}
                     </div>
-                    <Image src={`${ASSET_BASE}/cat-icon.webp`} alt="" width={420} height={420} className={styles.heroCat} preload />
+                    <div style={{ height: "3rem" }} />
                 </section>
 
                 {/* ============================ MORNING / DAY / NIGHT ============================ */}
