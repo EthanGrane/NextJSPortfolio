@@ -139,7 +139,8 @@ export function EmoteWriter() {
                             aria-pressed={m.prefix === prefix}
                             onClick={() => setPrefix(m.prefix)}
                         >
-                            {m.label} {m.command && <code>{m.command}</code>}
+                            <span className={styles.modeLong}>{m.label}</span>
+                            <span className={styles.modeShort}>{m.short}</span> {m.command && <code>{m.command}</code>}
                         </button>
                     ))}
                 </div>
@@ -150,7 +151,14 @@ export function EmoteWriter() {
                 <h2 id="emotes-label" className={styles.step}>Emotes</h2>
                 <div className={styles.emotes}>
                     {EMOTES.map((e) => (
-                        <button key={e.code} type="button" className={styles.emote} title={`Insert :${e.code}:`} onClick={() => insert(`:${e.code}:`)}>
+                        <button
+                            key={e.code}
+                            type="button"
+                            className={styles.emote}
+                            title={`${e.name}: :${e.code}: or ${e.emoticon}`}
+                            aria-label={`Insert ${e.name} (:${e.code}:)`}
+                            onClick={() => insert(`:${e.code}:`)}
+                        >
                             <span className={styles.face}>
                                 <Image src={e.image} alt="" width={120} height={82} />
                             </span>
@@ -184,7 +192,7 @@ export function EmoteWriter() {
                     }}
                 />
                 <div className={styles.meta}>
-                    <span>Emotes play when the text reaches them, with a short pause around them.</span>
+                    <span className={styles.metaHint}>Emotes play when the text reaches them, with a short pause around them.</span>
                     <span className={counted > CHAT_LIMIT ? styles.over : undefined}>
                         {counted} / {CHAT_LIMIT}
                     </span>
@@ -218,8 +226,8 @@ export function EmoteWriter() {
                     <div ref={line} className={styles.line} aria-live="polite">
                         {full || " "}
                     </div>
-                    <button type="button" className={styles.copy} onClick={copy} disabled={!full}>
-                        <FaCopy aria-hidden="true" /> Copy
+                    <button type="button" className={styles.copy} onClick={copy} disabled={!full} aria-label="Copy">
+                        <FaCopy aria-hidden="true" /> <span className={styles.copyText}>Copy</span>
                     </button>
                 </div>
                 {copied && <p className={styles.copied}>{copied}</p>}

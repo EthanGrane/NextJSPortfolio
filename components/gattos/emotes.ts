@@ -35,9 +35,9 @@ export type EmoteCode = (typeof EMOTES)[number]["code"];
 
 /** What the viewer is writing: a chat message while inside, a greeting (!join) or a goodbye (!bye). */
 export const MODES = [
-    { prefix: "", label: "Chat while inside", command: "", hint: "Shown in a speech bubble over your customer's head while they're in the pizzeria." },
-    { prefix: "!join ", label: "Greeting", command: "!join", hint: "Your customer says it when they sit down. Typing !join puts you in the queue." },
-    { prefix: "!bye ", label: "Goodbye", command: "!bye", hint: "Your customer says it when they leave. You can send it before or during your visit." },
+    { prefix: "", label: "Chat while inside", short: "Chat", command: "", hint: "Shown in a speech bubble over your customer's head while they're in the pizzeria." },
+    { prefix: "!join ", label: "Greeting", short: "Hello", command: "!join", hint: "Your customer says it when they sit down. Typing !join puts you in the queue." },
+    { prefix: "!bye ", label: "Goodbye", short: "Bye", command: "!bye", hint: "Your customer says it when they leave. You can send it before or during your visit." },
 ] as const;
 
 export type ModePrefix = (typeof MODES)[number]["prefix"];

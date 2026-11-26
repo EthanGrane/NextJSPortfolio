@@ -104,6 +104,10 @@
     padding: 7px 16px;
 }
 
+.modeShort {
+    display: none;
+}
+
 .mode[aria-pressed="true"] {
     border-color: #9146ff;
     background: #f1e8ff;
@@ -446,5 +450,222 @@
 
     .emotes {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ---------- Phones: one screen, as little scrolling as possible ----------
+   Emotes become a row of round face buttons (no text) above the message box;
+   headings, hints and explanations are hidden (still read by screen readers
+   where they label something). */
+
+@media (max-width: 640px) {
+    .hero {
+        padding: 76px 0 10px;
+    }
+
+    .back,
+    .lede {
+        display: none;
+    }
+
+    .title {
+        margin-top: 0 !important;
+        font-size: 26px;
+        gap: 10px;
+    }
+
+    .body {
+        padding: 10px 0 24px;
+    }
+
+    .layout {
+        gap: 16px;
+    }
+
+    .card {
+        padding: 14px;
+        border-radius: 18px;
+    }
+
+    .writer {
+        gap: 10px;
+    }
+
+    /* Section titles: hidden visually, kept for screen readers. */
+    .step {
+        position: absolute !important;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        margin: 0 !important;
+    }
+
+    .hint,
+    .metaHint,
+    .events {
+        display: none;
+    }
+
+    .modes {
+        flex-wrap: nowrap;
+        gap: 6px;
+    }
+
+    .mode {
+        flex: 1 1 0;
+        min-width: 0;
+        font-size: 14px;
+        padding: 6px 8px;
+        white-space: nowrap;
+    }
+
+    .modeLong {
+        display: none;
+    }
+
+    .modeShort {
+        display: inline;
+    }
+
+    .mode code {
+        display: none; /* the command shows in the paste box */
+    }
+
+    /* Round face buttons, all six in one row. */
+    .emotes {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .emote {
+        padding: 0;
+        background: none;
+        border: 0;
+        border-radius: 50%;
+    }
+
+    .emote:hover {
+        transform: none;
+    }
+
+    .emote > :not(.face) {
+        display: none;
+    }
+
+    .face {
+        width: 100%;
+        max-width: 54px;
+        height: auto;
+        aspect-ratio: 1;
+        border: 2px solid #f2d9bd;
+    }
+
+    .emote:hover .face,
+    .emote:focus-visible .face {
+        border-color: var(--orange);
+    }
+
+    /* Message box first, then the counter (left) and Random example (right) on one line. */
+    .box {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .textarea,
+    .example {
+        grid-column: 1 / -1;
+    }
+
+    .textarea {
+        order: -1;
+    }
+
+    .meta {
+        order: 1;
+    }
+
+    .boxHead {
+        order: 2;
+    }
+
+    .example {
+        order: 3;
+    }
+
+    .random {
+        font-size: 13px;
+        padding: 4px 12px;
+    }
+
+    .textarea {
+        min-height: 64px;
+        padding: 10px 12px;
+        font-size: 16px; /* 16px or more: iOS does not zoom in */
+        border-radius: 14px;
+    }
+
+    .meta {
+        justify-content: flex-start;
+        font-size: 12.5px;
+    }
+
+    .example {
+        padding: 8px 12px;
+        font-size: 13.5px;
+    }
+
+    .stage {
+        padding: 10px;
+        border-radius: 14px;
+    }
+
+    .bubble {
+        font-size: 15px;
+        padding: 8px 12px;
+    }
+
+    .out {
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+
+    .line {
+        flex: 1 1 0;
+        padding: 9px 12px;
+        font-size: 13.5px;
+    }
+
+    .copy {
+        padding: 12px 16px;
+        font-size: 20px;
+    }
+
+    .copyText {
+        display: none; /* icon only: the box keeps more room */
+    }
+
+    .copied {
+        font-size: 13px;
+    }
+
+    .side {
+        padding: 16px;
+        border-radius: 18px;
+    }
+
+    .sideTitle {
+        font-size: 20px;
+        margin-bottom: 8px !important;
+    }
+
+    .commands {
+        gap: 8px;
+    }
+
+    .command dd {
+        font-size: 14px;
     }
 }
