@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FaCopy, FaDiceFive } from "react-icons/fa";
 
@@ -40,6 +40,19 @@ export function EmoteWriter() {
     const lastExample = useRef(-1);
     const box = useRef<HTMLTextAreaElement>(null);
     const line = useRef<HTMLDivElement>(null);
+
+    // Fixed width: the message box grows downwards with the text.
+    useLayoutEffect(() => {
+        const area = box.current;
+        if (!area) return;
+        const fit = () => {
+            area.style.height = "auto";
+            area.style.height = `${area.scrollHeight + 4}px`; // + borders (border-box)
+        };
+        fit();
+        window.addEventListener("resize", fit);
+        return () => window.removeEventListener("resize", fit);
+    }, [message]);
 
     const text = clean(message);
     const full = (prefix + text).trim();

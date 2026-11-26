@@ -60,7 +60,13 @@
 
 .writer {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 26px;
+}
+
+/* Long text wraps inside its box instead of widening the page. */
+.writer > * {
+    min-width: 0;
 }
 
 .step {
@@ -211,9 +217,12 @@
 }
 
 .textarea {
+    box-sizing: border-box;
     width: 100%;
     min-height: 100px;
-    resize: vertical;
+    resize: none; /* fixed width: grows downwards with the text (see EmoteWriter) */
+    overflow: hidden;
+    overflow-wrap: anywhere;
     padding: 14px 16px;
     border-radius: 16px;
     border: 2px solid #f2d9bd;
@@ -319,8 +328,8 @@
     background: var(--cream);
     font-family: ui-monospace, Consolas, monospace;
     font-size: 15px;
-    white-space: pre;
-    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 .copy {
@@ -337,6 +346,10 @@
     font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+}
+
+.copy {
+    align-self: flex-start;
 }
 
 .copy:hover {
