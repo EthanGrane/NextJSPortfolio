@@ -1,0 +1,433 @@
+/* Twitch Emotes page (/GattosPizzeria/twitch). Uses the landing page's tokens
+   (--orange, --cream, --brown... set on gattos.module.css .page) and plain CSS
+   for the same reason as the landing page (Once UI's unlayered global styles). */
+
+.hero {
+    padding: 112px 0 36px;
+    color: var(--white);
+}
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 800;
+    opacity: 0.9;
+}
+
+.back:hover {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 10px !important;
+    font-size: 52px;
+}
+
+.lede {
+    margin-top: 10px !important;
+    max-width: 640px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.body {
+    padding: 36px 0 72px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 8px 0 rgba(90, 42, 34, 0.08);
+    min-width: 0;
+}
+
+/* ---------- Writer ---------- */
+
+.writer {
+    display: grid;
+    gap: 26px;
+}
+
+.step {
+    display: block;
+    font-family: var(--font-gp-display), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 15px !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange-dark);
+    margin: 0 0 10px !important;
+}
+
+.modes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.mode,
+.random,
+.copy,
+.emote {
+    font-family: var(--font-gp-body), system-ui, sans-serif;
+    cursor: pointer;
+}
+
+.mode {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--brown);
+    background: var(--cream);
+    border: 2px solid #f2d9bd;
+    border-radius: 999px;
+    padding: 7px 16px;
+}
+
+.mode[aria-pressed="true"] {
+    border-color: #9146ff;
+    background: #f1e8ff;
+}
+
+.mode code,
+.emote code,
+.events code,
+.commands code {
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 0.9em;
+    color: #7a3cf0;
+}
+
+.hint {
+    margin-top: 8px !important;
+    font-size: 15px;
+    color: #8a5a45;
+}
+
+.emotes {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.emote {
+    display: grid;
+    justify-items: center;
+    gap: 4px;
+    padding: 12px 8px 10px;
+    background: var(--cream);
+    border: 2px solid #f2d9bd;
+    border-radius: 18px;
+    color: var(--brown);
+    font-size: 15px;
+    font-weight: 800;
+    transition: transform 150ms ease, border-color 150ms ease;
+}
+
+.emote:hover {
+    transform: translateY(-2px);
+    border-color: var(--orange);
+}
+
+.emote:active {
+    transform: scale(0.97);
+}
+
+.emote small {
+    font-size: 12.5px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #8a5a45;
+    text-align: center;
+}
+
+.face {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #f5b37c;
+    overflow: hidden;
+}
+
+.face img {
+    width: 92%;
+    height: auto;
+}
+
+.emoteName {
+    font-family: var(--font-gp-display), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.box {
+    display: grid;
+    gap: 8px;
+}
+
+.boxHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.boxHead .step {
+    margin: 0 !important;
+}
+
+.random {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 800;
+    color: #7a3cf0;
+    background: var(--white);
+    border: 2px solid #9146ff;
+    border-radius: 999px;
+    padding: 6px 16px;
+}
+
+.random:hover {
+    background: #f1e8ff;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 2px solid #f2d9bd;
+    background: var(--cream);
+    color: var(--brown);
+    font-family: var(--font-gp-body), system-ui, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13.5px;
+    color: #8a5a45;
+    font-variant-numeric: tabular-nums;
+}
+
+.over {
+    color: #d8452f;
+    font-weight: 800;
+}
+
+.example {
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: #f1e8ff;
+    border-left: 5px solid #9146ff;
+    font-size: 15px;
+}
+
+.example b {
+    font-family: var(--font-gp-display), system-ui, sans-serif;
+    font-weight: 600;
+}
+
+.stage {
+    display: grid;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 18px;
+    background: url("/games/gattos/patterns/night.svg") var(--night);
+}
+
+.bubble {
+    justify-self: start;
+    max-width: 100%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    background: var(--white);
+    color: var(--brown);
+    font-family: var(--font-gp-display), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.bubbleEmpty {
+    color: #8a5a45;
+    font-family: var(--font-gp-body), system-ui, sans-serif;
+    font-style: italic;
+    font-size: 16px;
+}
+
+.inlineFace {
+    display: inline-block;
+    height: 1.7em;
+    width: auto;
+    vertical-align: -0.5em;
+    margin: 0 3px;
+    padding: 1px 4px;
+    border-radius: 999px;
+    background: #f5b37c;
+}
+
+.events {
+    margin: 0;
+    padding-left: 1.3em;
+    color: #ffe9cf;
+    font-size: 15px;
+}
+
+.events code {
+    color: #d8c2ff;
+}
+
+.out {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.line {
+    flex: 1 1 260px;
+    min-width: 0;
+    padding: 13px 16px;
+    border-radius: 14px;
+    border: 2px dashed #f2d9bd;
+    background: var(--cream);
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 15px;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 999px;
+    padding: 12px 24px;
+    background: #9146ff;
+    color: var(--white);
+    font-family: var(--font-gp-display), system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.copy:hover {
+    filter: brightness(1.08);
+}
+
+.copy:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.copied {
+    margin-top: 8px !important;
+    font-size: 14px;
+    color: #7a3cf0;
+}
+
+.mode:focus-visible,
+.emote:focus-visible,
+.random:focus-visible,
+.copy:focus-visible,
+.textarea:focus-visible,
+.back:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 2px;
+}
+
+/* ---------- Side: commands ---------- */
+
+.side {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 8px 0 rgba(90, 42, 34, 0.08);
+}
+
+.sideTitle {
+    font-size: 26px;
+    margin-bottom: 14px !important;
+}
+
+.commands {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+}
+
+.command dt {
+    font-weight: 800;
+}
+
+.command dd {
+    margin: 2px 0 0;
+    font-size: 15px;
+    color: #8a5a45;
+}
+
+.sideNote {
+    margin-top: 18px !important;
+    font-size: 13.5px;
+    color: #8a5a45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .emote {
+        transition: none;
+    }
+}
+
+@media (max-width: 860px) {
+    .hero {
+        padding: 92px 0 28px;
+    }
+
+    .title {
+        font-size: 38px;
+    }
+
+    .lede {
+        font-size: 17px;
+    }
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .emotes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

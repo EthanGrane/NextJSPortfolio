@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaCheck, FaEnvelope, FaFlag, FaGithub, FaMoon, FaPlay, FaSteam, FaSun } from "react-icons/fa";
+import { FaCheck, FaEnvelope, FaFlag, FaGithub, FaMoon, FaPlay, FaSteam, FaSun, FaTwitch } from "react-icons/fa";
 import { FiSunrise } from "react-icons/fi";
 
 import { ASSET_BASE, DAY_PHASES, ROADMAP, STEAM_URL, TAGLINE, TRAILER_URL } from "@/components/gattos/config";
@@ -32,6 +32,9 @@ export default function GattosPizzeriaPage() {
                         <li><a href="#roadmap">Roadmap</a></li>
                     </ul>
                     <div className={styles.navSpacer} />
+                    <Link href="/GattosPizzeria/twitch" aria-label="Twitch emotes" className={`${styles.btn} ${styles.btnSmall} ${styles.btnGhost}`}>
+                        <FaTwitch /> <span className={styles.navTwitchText}>Twitch emotes</span>
+                    </Link>
                     <a href={STEAM_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnSmall} ${styles.btnWhite}`}>
                         <FaSteam /> Wishlist
                     </a>

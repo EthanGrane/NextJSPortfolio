@@ -139,6 +139,13 @@
     flex: 1;
 }
 
+/* Twitch emotes link: icon only on narrow phones so the nav fits. */
+@media (max-width: 520px) {
+    .navTwitchText {
+        display: none;
+    }
+}
+
 /* ---------- Hero ---------- */
 
 .hero {
