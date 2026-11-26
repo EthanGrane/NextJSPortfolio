@@ -5,16 +5,16 @@ import Image from "next/image";
 import { FaCopy, FaDiceFive } from "react-icons/fa";
 
 import styles from "@/app/[locale]/GattosPizzeria/twitch/twitch.module.css";
-import { CHAT_LIMIT, EMOTES, EXAMPLES, MODES, type ModePrefix } from "./emotes";
+import { CHAT_LIMIT, EMOTES, EXAMPLES, MODES, fromEmoticons, type ModePrefix } from "./emotes";
 
 type Emote = (typeof EMOTES)[number];
 
-const CODE_RE = /:(lost|love|wow|cry):/gi;
+const CODE_RE = /:(lost|love|wow|cry|happy|tongue):/gi;
 
 const findEmote = (code: string) => EMOTES.find((e) => e.code === code.toLowerCase());
 
-/** The game removes < and > from chat and joins spaces, so the preview does too. */
-const clean = (text: string) => text.replace(/[<>]/g, "").replace(/\s+/g, " ").trim();
+/** The game turns emoticons into emotes, removes < and > from chat and joins spaces, so the preview does too. */
+const clean = (text: string) => fromEmoticons(text).replace(/[<>]/g, "").replace(/\s+/g, " ").trim();
 
 /** Text and emotes in order, for the preview bubble. */
 function split(text: string): (string | Emote)[] {
@@ -55,7 +55,9 @@ export function EmoteWriter() {
     }, [message]);
 
     const text = clean(message);
-    const full = (prefix + text).trim();
+    // What to paste: the message as typed (emoticons kept: the game understands them), spaces joined.
+    const full = (prefix + message.replace(/\s+/g, " ").trim()).trim();
+    const counted = (prefix + text).trim().length; // the game counts after turning emoticons into codes
     const parts = split(text);
     const emotes = parts.filter((p): p is Emote => typeof p !== "string");
     const words = text.replace(CODE_RE, "").trim();
@@ -154,6 +156,9 @@ export function EmoteWriter() {
                             </span>
                             <span className={styles.emoteName}>{e.name}</span>
                             <code>:{e.code}:</code>
+                            <small className={styles.alias}>
+                                or <code>{e.emoticon}</code>
+                            </small>
                             <small>{e.does}</small>
                         </button>
                     ))}
@@ -180,8 +185,8 @@ export function EmoteWriter() {
                 />
                 <div className={styles.meta}>
                     <span>Emotes play when the text reaches them, with a short pause around them.</span>
-                    <span className={full.length > CHAT_LIMIT ? styles.over : undefined}>
-                        {full.length} / {CHAT_LIMIT}
+                    <span className={counted > CHAT_LIMIT ? styles.over : undefined}>
+                        {counted} / {CHAT_LIMIT}
                     </span>
                 </div>
                 {example && (

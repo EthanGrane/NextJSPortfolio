@@ -12,7 +12,7 @@ import styles from "./twitch.module.css";
 
 const TITLE = "Twitch Emotes — Gatto's Pizzeria";
 const DESCRIPTION =
-    "Write your Twitch chat message for Gatto's Pizzeria with one-click emotes (:lost: :love: :wow: :cry:), see what your customer will do and copy it into chat.";
+    "Write your Twitch chat message for Gatto's Pizzeria with one-click emotes (:lost: :love: :wow: :cry: :happy: :tongue:, or O_o <3 :O :( :) :p), see what your customer will do and copy it into chat.";
 
 export const metadata: Metadata = {
     title: TITLE,

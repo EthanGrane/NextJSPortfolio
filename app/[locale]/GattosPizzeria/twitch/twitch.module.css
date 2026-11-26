@@ -126,7 +126,7 @@
 
 .emotes {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
 }
 
@@ -151,6 +151,10 @@
 
 .emote:active {
     transform: scale(0.97);
+}
+
+.emote .alias {
+    font-weight: 800;
 }
 
 .emote small {

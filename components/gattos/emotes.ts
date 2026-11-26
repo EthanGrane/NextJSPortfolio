@@ -5,12 +5,31 @@ import { ASSET_BASE } from "./config";
 
 export const CHAT_LIMIT = 150;
 
+/** emoticon: the classic emoticon that also works (any case, 0 for O), shown on the button. */
 export const EMOTES = [
-    { code: "lost", name: "Oops!", does: "Panics, a “!” pops up and the oops sound plays", image: `${ASSET_BASE}/emotes/lost.webp` },
-    { code: "love", name: "Love", does: "Heart eyes and floating hearts", image: `${ASSET_BASE}/emotes/love.webp` },
-    { code: "wow", name: "Wow", does: "Surprised face and a little victory dance", image: `${ASSET_BASE}/emotes/wow.webp` },
-    { code: "cry", name: "Cry", does: "Sad face with tears", image: `${ASSET_BASE}/emotes/cry.webp` },
+    { code: "lost", emoticon: "O_o", name: "Oops!", does: "Panics, a “!” pops up and the oops sound plays", image: `${ASSET_BASE}/emotes/lost.webp` },
+    { code: "love", emoticon: "<3", name: "Love", does: "Heart eyes and floating hearts", image: `${ASSET_BASE}/emotes/love.webp` },
+    { code: "wow", emoticon: ":O", name: "Wow", does: "Surprised face and a little victory dance", image: `${ASSET_BASE}/emotes/wow.webp` },
+    { code: "cry", emoticon: ":(", name: "Cry", does: "Sad face with tears", image: `${ASSET_BASE}/emotes/cry.webp` },
+    { code: "happy", emoticon: ":)", name: "Happy", does: "A big happy smile", image: `${ASSET_BASE}/emotes/happy.webp` },
+    { code: "tongue", emoticon: ":p", name: "Cheeky", does: "A cheeky wink", image: `${ASSET_BASE}/emotes/tongue.webp` },
 ] as const;
+
+/**
+ * Classic emoticons -> emote code, as a word of their own (same rules as the game's ChatEmotes.FromEmoticons).
+ * Applied before cleaning the text: cleaning removes the "<" of "<3".
+ */
+const EMOTICONS: [RegExp, EmoteCode][] = [
+    [/(?<!\S)[oO0]_[oO0](?=$|[\s.,!?])/g, "lost"],
+    [/(?<!\S)<3(?=$|[\s.,!?])/g, "love"],
+    [/(?<!\S):[oO0](?=$|[\s.,!?])/g, "wow"],
+    [/(?<!\S):\((?=$|[\s.,!?])/g, "cry"],
+    [/(?<!\S):\)(?=$|[\s.,!?])/g, "happy"],
+    [/(?<!\S):[pP](?=$|[\s.,!?])/g, "tongue"],
+];
+
+export const fromEmoticons = (text: string) =>
+    EMOTICONS.reduce((t, [regex, code]) => t.replace(regex, `:${code}:`), text);
 
 export type EmoteCode = (typeof EMOTES)[number]["code"];
 
@@ -35,6 +54,8 @@ export const EXAMPLES: { prefix: ModePrefix; text: string; why: string }[] = [
     { prefix: "", text: ":love:", why: "Only an emote while you're inside: no bubble, your customer just gets the heart eyes and the hearts." },
     { prefix: "", text: "chef... :cry: ...is that MY pizza? :wow:", why: "Two emotes in one message: first the tears, a pause, more text, another pause, and then the surprised victory dance." },
     { prefix: "!bye ", text: "Grazie, see you tomorrow :cry:", why: "A goodbye. Saved now, said when your customer leaves after eating: “Grazie, see you tomorrow”, and then the tears." },
+    { prefix: "", text: "best. pizza. ever. :)", why: "Emoticons work too: :) is the same as :happy:, so your customer smiles while the bubble is on screen." },
+    { prefix: "", text: "I ate the last slice :p", why: ":p is the same as :tongue: — a cheeky wink. Try <3, :O, :( and O_o too." },
     { prefix: "!bye ", text: ":love: Best pizza in town!", why: "A goodbye that starts with hearts: your customer gets heart eyes, waits a moment, and says “Best pizza in town!” on the way out." },
 ];
 
