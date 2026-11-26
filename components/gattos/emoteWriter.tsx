@@ -162,12 +162,6 @@ export function EmoteWriter() {
                             <span className={styles.face}>
                                 <Image src={e.image} alt="" width={120} height={82} />
                             </span>
-                            <span className={styles.emoteName}>{e.name}</span>
-                            <code>:{e.code}:</code>
-                            <small className={styles.alias}>
-                                or <code>{e.emoticon}</code>
-                            </small>
-                            <small>{e.does}</small>
                         </button>
                     ))}
                 </div>
@@ -217,20 +211,19 @@ export function EmoteWriter() {
                             ))}
                         </ol>
                     )}
-                </div>
-            </section>
 
-            <section aria-labelledby="out-label">
-                <h2 id="out-label" className={styles.step}>Paste this in chat</h2>
-                <div className={styles.out}>
-                    <div ref={line} className={styles.line} aria-live="polite">
-                        {full || " "}
+                    {/* What to paste in chat, inside the preview. */}
+                    <h3 id="out-label" className={styles.outLabel}>Paste this in chat</h3>
+                    <div className={styles.out} role="group" aria-labelledby="out-label">
+                        <div ref={line} className={styles.line} aria-live="polite">
+                            {full || " "}
+                        </div>
+                        <button type="button" className={styles.copy} onClick={copy} disabled={!full} aria-label="Copy">
+                            <FaCopy aria-hidden="true" /> <span className={styles.copyText}>Copy</span>
+                        </button>
                     </div>
-                    <button type="button" className={styles.copy} onClick={copy} disabled={!full} aria-label="Copy">
-                        <FaCopy aria-hidden="true" /> <span className={styles.copyText}>Copy</span>
-                    </button>
+                    {copied && <p className={styles.copied}>{copied}</p>}
                 </div>
-                {copied && <p className={styles.copied}>{copied}</p>}
             </section>
         </div>
     );

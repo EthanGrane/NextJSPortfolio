@@ -128,66 +128,48 @@
     color: #8a5a45;
 }
 
+/* Emotes: small round face buttons (no text: the name is in the tooltip). */
 .emotes {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .emote {
-    display: grid;
-    justify-items: center;
-    gap: 4px;
-    padding: 12px 8px 10px;
-    background: var(--cream);
-    border: 2px solid #f2d9bd;
-    border-radius: 18px;
-    color: var(--brown);
-    font-size: 15px;
-    font-weight: 800;
-    transition: transform 150ms ease, border-color 150ms ease;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 50%;
+    transition: transform 150ms ease;
 }
 
 .emote:hover {
     transform: translateY(-2px);
-    border-color: var(--orange);
 }
 
 .emote:active {
-    transform: scale(0.97);
-}
-
-.emote .alias {
-    font-weight: 800;
-}
-
-.emote small {
-    font-size: 12.5px;
-    font-weight: 700;
-    line-height: 1.25;
-    color: #8a5a45;
-    text-align: center;
+    transform: scale(0.94);
 }
 
 .face {
     display: grid;
     place-items: center;
-    width: 72px;
-    height: 72px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     background: #f5b37c;
+    border: 2px solid #f2d9bd;
     overflow: hidden;
+}
+
+.emote:hover .face,
+.emote:focus-visible .face {
+    border-color: var(--orange);
 }
 
 .face img {
     width: 92%;
     height: auto;
-}
-
-.emoteName {
-    font-family: var(--font-gp-display), system-ui, sans-serif;
-    font-weight: 600;
-    font-size: 17px;
 }
 
 .box {
@@ -370,9 +352,18 @@
 }
 
 .copied {
-    margin-top: 8px !important;
+    margin: 0 !important;
     font-size: 14px;
-    color: #7a3cf0;
+    color: #d8c2ff; /* on the dark preview */
+}
+
+/* "Paste this in chat", inside the preview. */
+.outLabel {
+    margin: 6px 0 0 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffe9cf;
 }
 
 .mode:focus-visible,
@@ -448,9 +439,6 @@
         padding: 20px;
     }
 
-    .emotes {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
 }
 
 /* ---------- Phones: one screen, as little scrolling as possible ----------
@@ -533,25 +521,15 @@
         display: none; /* the command shows in the paste box */
     }
 
-    /* Round face buttons, all six in one row. */
+    /* All six faces in one row. */
     .emotes {
+        display: grid;
         grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 6px;
     }
 
-    .emote {
-        padding: 0;
-        background: none;
-        border: 0;
-        border-radius: 50%;
-    }
-
     .emote:hover {
         transform: none;
-    }
-
-    .emote > :not(.face) {
-        display: none;
     }
 
     .face {
@@ -559,12 +537,10 @@
         max-width: 54px;
         height: auto;
         aspect-ratio: 1;
-        border: 2px solid #f2d9bd;
     }
 
-    .emote:hover .face,
-    .emote:focus-visible .face {
-        border-color: var(--orange);
+    .outLabel {
+        display: none;
     }
 
     /* Message box first, then the counter (left) and Random example (right) on one line. */
