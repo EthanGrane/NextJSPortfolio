@@ -122,7 +122,7 @@ export function EmoteWriter() {
             typeof p === "string" ? (
                 <span key={i}>{p}</span>
             ) : (
-                <Image key={i} src={p.image} alt={`:${p.code}:`} width={48} height={33} className={styles.inlineFace} />
+                <Image key={i} src={p.image} alt={`:${p.code}:`} width={48} height={33} className={styles.inlineFace} style={{ background: p.color }} />
             )
         );
 
@@ -159,7 +159,7 @@ export function EmoteWriter() {
                             aria-label={`Insert ${e.name} (:${e.code}:)`}
                             onClick={() => insert(`:${e.code}:`)}
                         >
-                            <span className={styles.face}>
+                            <span className={styles.face} style={{ background: e.color }}>
                                 <Image src={e.image} alt="" width={120} height={82} />
                             </span>
                         </button>

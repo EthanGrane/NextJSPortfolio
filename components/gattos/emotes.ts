@@ -5,14 +5,17 @@ import { ASSET_BASE } from "./config";
 
 export const CHAT_LIMIT = 150;
 
-/** emoticon: the classic emoticon that also works (any case, 0 for O), shown on the button. */
+/**
+ * emoticon: the classic emoticon that also works (any case, 0 for O), shown in the tooltip.
+ * color: pastel background behind the face (light enough not to hide the eyes and mouth).
+ */
 export const EMOTES = [
-    { code: "lost", emoticon: "O_o", name: "Oops!", does: "Panics, a “!” pops up and the oops sound plays", image: `${ASSET_BASE}/emotes/lost.webp` },
-    { code: "love", emoticon: "<3", name: "Love", does: "Heart eyes and floating hearts", image: `${ASSET_BASE}/emotes/love.webp` },
-    { code: "wow", emoticon: ":O", name: "Wow", does: "Surprised face and a little victory dance", image: `${ASSET_BASE}/emotes/wow.webp` },
-    { code: "cry", emoticon: ":(", name: "Cry", does: "Sad face with tears", image: `${ASSET_BASE}/emotes/cry.webp` },
-    { code: "happy", emoticon: ":)", name: "Happy", does: "A big happy smile", image: `${ASSET_BASE}/emotes/happy.webp` },
-    { code: "tongue", emoticon: ":p", name: "Cheeky", does: "A cheeky wink", image: `${ASSET_BASE}/emotes/tongue.webp` },
+    { code: "lost", emoticon: "O_o", color: "#e3e3e8", name: "Oops!", does: "Panics, a “!” pops up and the oops sound plays", image: `${ASSET_BASE}/emotes/lost.webp` },
+    { code: "love", emoticon: "<3", color: "#ffc8d8", name: "Love", does: "Heart eyes and floating hearts", image: `${ASSET_BASE}/emotes/love.webp` },
+    { code: "wow", emoticon: ":O", color: "#ffe8a0", name: "Wow", does: "Surprised face and a little victory dance", image: `${ASSET_BASE}/emotes/wow.webp` },
+    { code: "cry", emoticon: ":(", color: "#c2e0ff", name: "Cry", does: "Sad face with tears", image: `${ASSET_BASE}/emotes/cry.webp` },
+    { code: "happy", emoticon: ":)", color: "#c9f0d6", name: "Happy", does: "A big happy smile", image: `${ASSET_BASE}/emotes/happy.webp` },
+    { code: "tongue", emoticon: ":p", color: "#f5b37c", name: "Cheeky", does: "A cheeky wink", image: `${ASSET_BASE}/emotes/tongue.webp` },
 ] as const;
 
 /**
